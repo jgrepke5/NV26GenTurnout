@@ -1,6 +1,6 @@
 {
   "spreadsheetId": "vivid-file6",
-  "fetchedAt": "2026-10-13T15:20:47.863Z",
+  "fetchedAt": "2026-10-13T15:30:35.199Z",
   "sourceUrl": "https://www.nvsos.gov/elections/election-information/vivid-project",
   "sourceHash": "23aa3840911e7e11-630623630",
   "asOfDate": "2026-10-13",
@@ -4501,102 +4501,6 @@
           "0.29%"
         ],
         [
-          "District E",
-          "2",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "0.00%"
-        ],
-        [
-          "  Democrat",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        [
-          "  Republican",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        [
-          "  Non-Partisan / 3rd Party",
-          "2",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "0.00%"
-        ],
-        [
-          "District F",
-          "1",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "0.00%"
-        ],
-        [
-          "  Democrat",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        [
-          "  Republican",
-          "0",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        [
-          "  Non-Partisan / 3rd Party",
-          "1",
-          "0",
-          "0",
-          "0",
-          "0",
-          "—",
-          "—",
-          "—",
-          "0.00%"
-        ],
-        [
           "CLARK"
         ],
         [
@@ -6476,34 +6380,6 @@
         "allVotes": 243,
         "rdAdvantage": -42,
         "rdAdvantagePct": -0.1728395061728395
-      },
-      "historic2022": null,
-      "historic2024": null
-    },
-    {
-      "geoKey": "commission-washoe-e",
-      "label": "Washoe Commission E",
-      "metrics": {
-        "republicanVotes": 0,
-        "democratVotes": 0,
-        "otherVotes": 0,
-        "allVotes": 0,
-        "rdAdvantage": 0,
-        "rdAdvantagePct": null
-      },
-      "historic2022": null,
-      "historic2024": null
-    },
-    {
-      "geoKey": "commission-washoe-f",
-      "label": "Washoe Commission F",
-      "metrics": {
-        "republicanVotes": 0,
-        "democratVotes": 0,
-        "otherVotes": 0,
-        "allVotes": 0,
-        "rdAdvantage": 0,
-        "rdAdvantagePct": null
       },
       "historic2022": null,
       "historic2024": null

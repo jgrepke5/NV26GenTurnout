@@ -15,6 +15,7 @@ const COUNTY_CONFIG: BreakoutTableConfig = {
   labelHeader: "County",
   isSectionMarker: (label, row, layout) =>
     isMarkerRow(label, row, layout, (l) => l.toUpperCase() === "RURALS"),
+  primaryBlockTitle: "County Turnout",
   secondaryBlockTitle: "Rural County Breakdown",
   buildChartSlices: (group, { allGroups, section, headers }) => {
     if (section === "primary" && group.name.toLowerCase() === "total") {

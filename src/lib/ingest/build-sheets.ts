@@ -206,8 +206,13 @@ export function buildCommissionSheet(agg: AggregateResult): SheetTable {
   headers[0] = "WASHOE";
   const rows: CellValue[][] = [];
 
+  // Washoe has districts 1–5 only; File 6 sometimes tags stray E/F rows.
   const washoe = [...agg.commission.entries()]
-    .filter(([k]) => k.startsWith("WASHOE|"))
+    .filter(([k]) => {
+      if (!k.startsWith("WASHOE|")) return false;
+      const dist = (k.split("|")[1] ?? "").toUpperCase();
+      return !["E", "F"].includes(dist);
+    })
     .sort((a, b) => a[0].localeCompare(b[0]));
   for (const [key, b] of washoe) {
     const dist = key.split("|")[1] ?? key;
@@ -347,8 +352,10 @@ function geoAdvantages(
 
   for (const [key, b] of [...agg.commission.entries()].sort()) {
     const [county, dist] = key.split("|");
+    const distKey = (dist ?? "").toUpperCase();
+    if (county === "WASHOE" && (distKey === "E" || distKey === "F")) continue;
     const geoKey =
-      county === "CLARK" && dist?.toUpperCase() === "F"
+      county === "CLARK" && distKey === "F"
         ? "commission-clark-f"
         : `commission-${county?.toLowerCase()}-${dist?.toLowerCase()}`;
     list.push({

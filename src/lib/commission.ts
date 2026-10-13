@@ -16,6 +16,12 @@ const COMMISSION_CONFIG: BreakoutTableConfig = {
     isMarkerRow(label, row, layout, (l) => l.toUpperCase() === "CLARK"),
   primaryBlockTitle: "Washoe County Commission",
   secondaryBlockTitle: "Clark County Commission",
+  // Washoe commission is 1–5 only; ignore stray E/F tags from File 6.
+  filterGroup: (group, section) => {
+    if (section !== "primary") return true;
+    const name = group.name.trim().toUpperCase();
+    return name !== "DISTRICT E" && name !== "DISTRICT F";
+  },
 };
 
 export function buildCommissionBlocks(

@@ -4,23 +4,15 @@ import type { GeoAdvantage } from "@/lib/advantage";
 import type { DataGroup } from "@/lib/breakout-table";
 import { columnGroupClasses, isNumericHeader } from "@/lib/table-headers";
 import type { CellValue } from "@/lib/types";
-import {
-  useEffect,
-  useRef,
-  type ReactNode,
-  type RefObject,
-} from "react";
+import { useEffect, useRef, type RefObject } from "react";
 import { AdvantagePanel } from "./AdvantagePanel";
 import { RowLabel } from "./RowLabel";
 import { TableColGroup } from "./TableColGroup";
 import { TableHeadRow } from "./TableHeadRow";
+import { TableScroll } from "./TableScroll";
 import { TurnoutPieChart } from "./TurnoutPieChart";
 
 export type { DataGroup };
-
-function TableScroll({ children }: { children: ReactNode }) {
-  return <div className="table-scroll">{children}</div>;
-}
 
 function useSyncedTableScroll(
   rootRef: RefObject<HTMLDivElement | null>,

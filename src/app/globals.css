@@ -300,12 +300,84 @@ a:hover {
   min-width: 0;
 }
 
+.table-scroll-shell {
+  position: relative;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.table-scroll-shell::before,
+.table-scroll-shell::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 10px;
+  width: 1.35rem;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.table-scroll-shell::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    var(--paper-elevated),
+    color-mix(in srgb, var(--paper-elevated) 35%, transparent)
+  );
+}
+
+.table-scroll-shell::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    var(--paper-elevated),
+    color-mix(in srgb, var(--paper-elevated) 35%, transparent)
+  );
+}
+
+.table-scroll-shell--more-left::before,
+.table-scroll-shell--more-right::after {
+  opacity: 1;
+}
+
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
   max-width: 100%;
   min-width: 0;
+  /* Keep a thin track visible so horizontal scroll is discoverable */
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--ink) 28%, transparent)
+    color-mix(in srgb, var(--rule) 70%, transparent);
+}
+
+.table-scroll-shell--overflow .table-scroll {
+  padding-bottom: 0.15rem;
+}
+
+.table-scroll::-webkit-scrollbar {
+  height: 9px;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--rule) 65%, var(--paper-elevated));
+  border-radius: 999px;
+  margin-inline: 0.35rem;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ink) 28%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--ink) 42%, transparent);
+  background-clip: content-box;
 }
 
 .table-scroll .data-table {
@@ -726,13 +798,11 @@ a:hover {
   grid-column: 1;
   min-width: 0;
   max-width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
+  overflow: hidden;
 }
 
+.data-group-table .table-scroll-shell,
 .data-group-table .table-scroll {
-  overflow-x: auto;
   max-width: 100%;
 }
 

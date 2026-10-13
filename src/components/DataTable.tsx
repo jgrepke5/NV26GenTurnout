@@ -4,6 +4,7 @@ import type { CellValue } from "@/lib/types";
 import { RowLabel } from "./RowLabel";
 import { TableColGroup } from "./TableColGroup";
 import { TableHeadRow } from "./TableHeadRow";
+import { TableScroll } from "./TableScroll";
 
 function isNumericColumn(headers: string[], colIndex: number): boolean {
   return isNumericHeader(headers[colIndex] ?? "", colIndex);
@@ -57,7 +58,7 @@ export function DataTable({
         .filter(Boolean)
         .join(" ")}
     >
-      <div className="table-scroll">
+      <TableScroll>
         <table className="data-table">
           <TableColGroup headers={headers} />
           <TableHeadRow
@@ -98,7 +99,7 @@ export function DataTable({
           })}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
     </div>
   );
 }

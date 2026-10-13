@@ -93,23 +93,8 @@ function useSyncedTableScroll(
 }
 
 function GroupCharts({ group }: { group: DataGroup }) {
-  const hasVotes = group.chartSlices.length > 0;
-  const hasReg = (group.registrationSlices?.length ?? 0) > 0;
-  if (!hasVotes && !hasReg) return null;
-
-  return (
-    <div className="data-group-charts">
-      {hasReg ? (
-        <TurnoutPieChart
-          slices={group.registrationSlices}
-          caption="2026 VR"
-        />
-      ) : null}
-      {hasVotes ? (
-        <TurnoutPieChart slices={group.chartSlices} caption="Votes to Date" />
-      ) : null}
-    </div>
-  );
+  if (group.chartSlices.length === 0) return null;
+  return <TurnoutPieChart slices={group.chartSlices} caption="Votes to Date" />;
 }
 
 function GroupBody({

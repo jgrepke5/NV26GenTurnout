@@ -77,13 +77,6 @@ export function partySlicesFromRows(
   return slices;
 }
 
-export function partyRegistrationSlicesFromRows(
-  headers: string[],
-  rows: CellValue[][],
-): PieSlice[] {
-  return partySlicesFromRows(headers, rows, /'26\s*vr|2026\s*vr|26\s*vr/i);
-}
-
 export function peerHeaderSlices(
   headers: string[],
   peerRows: { name: string; headerRow: CellValue[] }[],

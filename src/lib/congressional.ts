@@ -123,20 +123,10 @@ function appendTotalGroup(block: BreakoutTableBlock): BreakoutTableBlock {
   rows.push(computeGrandTotalRow(districtHeaderRows, block.headers));
   rowClasses.push("row-county-header row-total");
 
-  const peerRows = districts.map((d) => ({
-    name: d.name,
-    headerRow: d.rows[0],
-  }));
   const chartSlices = congressionalTotalDistrictSlices(
     block.headers,
-    peerRows,
+    districts.map((d) => ({ name: d.name, headerRow: d.rows[0] })),
     CONGRESSIONAL_DISTRICTS,
-  );
-  const registrationSlices = congressionalTotalDistrictSlices(
-    block.headers,
-    peerRows,
-    CONGRESSIONAL_DISTRICTS,
-    /'26\s*vr|2026\s*vr|26\s*vr/i,
   );
 
   const totalGroup: DataGroup = {
@@ -144,7 +134,6 @@ function appendTotalGroup(block: BreakoutTableBlock): BreakoutTableBlock {
     rows,
     rowClasses,
     chartSlices,
-    registrationSlices,
   };
 
   return { ...block, groups: [...block.groups, totalGroup] };

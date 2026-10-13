@@ -1,6 +1,5 @@
 import {
   countyTotalRegionSlices,
-  partyRegistrationSlicesFromRows,
   partySlicesFromRows,
   type PieSlice,
 } from "./chart-data";
@@ -11,7 +10,6 @@ export interface DataGroup {
   rows: CellValue[][];
   rowClasses: string[];
   chartSlices: PieSlice[];
-  registrationSlices: PieSlice[];
 }
 
 export interface BreakoutTableBlock {
@@ -255,13 +253,6 @@ function defaultChartSlices(
   return partySlicesFromRows(headers, group.partyRows);
 }
 
-function defaultRegistrationSlices(
-  group: BreakoutGroup,
-  headers: string[],
-): PieSlice[] {
-  return partyRegistrationSlicesFromRows(headers, group.partyRows);
-}
-
 function buildBlock(
   groups: BreakoutGroup[],
   headers: string[],
@@ -280,7 +271,6 @@ function buildBlock(
       rows: flat.rows,
       rowClasses: flat.rowClasses,
       chartSlices,
-      registrationSlices: defaultRegistrationSlices(group, headers),
     };
   });
 

@@ -758,15 +758,6 @@ a:hover {
   overflow: hidden;
 }
 
-.data-group-charts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  min-width: 0;
-}
-
 .data-group-chart--empty {
   visibility: hidden;
   padding: 0;
@@ -928,8 +919,6 @@ a:hover {
   .statewide-blocks .data-block-chart {
     align-self: center;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
     width: 100%;
   }

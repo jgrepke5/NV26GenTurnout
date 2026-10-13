@@ -45,8 +45,18 @@ export function StatewideView({
                     variant={block.variant}
                   />
                 </div>
-                <aside className="data-block-chart">
-                  <TurnoutPieChart slices={block.chartSlices} />
+                <aside className="data-block-chart data-group-charts">
+                  {block.registrationSlices &&
+                  block.registrationSlices.length > 0 ? (
+                    <TurnoutPieChart
+                      slices={block.registrationSlices}
+                      caption="2026 VR"
+                    />
+                  ) : null}
+                  <TurnoutPieChart
+                    slices={block.chartSlices}
+                    caption="Votes to Date"
+                  />
                 </aside>
               </div>
             ) : (

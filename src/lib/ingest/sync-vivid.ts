@@ -8,7 +8,6 @@ import {
 } from "../advantage";
 import { SITE } from "../site-config";
 import type { TurnoutSnapshot } from "../types";
-import { applyOfficialVr, loadOfficialVr } from "../voter-registration";
 import { aggregateVividCsv } from "./aggregate";
 import { snapshotFromAggregate } from "./build-sheets";
 import { discoverFile6 } from "./discover";
@@ -78,12 +77,10 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
   const sourceHash = await hashStream(csvPath);
   console.log(`  Hash ${sourceHash}`);
   console.log("Aggregating (streaming)…");
-  let agg = await aggregateVividCsv(csvPath);
-  const vr = await loadOfficialVr();
-  agg = applyOfficialVr(agg, vr);
+  const agg = await aggregateVividCsv(csvPath);
   console.log(`  Accepted ballots: ${agg.acceptedVotes.toLocaleString()}`);
   console.log(
-    `  Official VR (as of ${vr.asOf}): ${agg.statewide.registered.toLocaleString()}`,
+    `  File 6 registered: ${agg.statewide.registered.toLocaleString()} (R ${agg.statewide.REP.registered.toLocaleString()} / D ${agg.statewide.DEM.registered.toLocaleString()} / Other ${agg.statewide.OTHER.registered.toLocaleString()})`,
   );
 
   const asOfDate = todayPacificYmd();

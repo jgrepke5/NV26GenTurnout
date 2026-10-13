@@ -1,4 +1,8 @@
-import { partySlicesFromRows, type PieSlice } from "./chart-data";
+import {
+  partyRegistrationSlicesFromRows,
+  partySlicesFromRows,
+  type PieSlice,
+} from "./chart-data";
 import type { CellValue, SheetTable } from "./types";
 
 export interface TableBlock {
@@ -7,6 +11,7 @@ export interface TableBlock {
   rows: CellValue[][];
   variant: "current" | "historical";
   chartSlices?: PieSlice[];
+  registrationSlices?: PieSlice[];
   wrapHeaders?: boolean;
   footnote?: string;
 }
@@ -61,6 +66,7 @@ function projectBlock(
   const block: TableBlock = { title, headers, rows, variant };
   if (variant === "current") {
     block.chartSlices = partySlicesFromRows(headers, rows);
+    block.registrationSlices = partyRegistrationSlicesFromRows(headers, rows);
   }
   return block;
 }

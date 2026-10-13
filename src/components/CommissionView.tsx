@@ -35,6 +35,8 @@ export function CommissionView({
                   headers={block.headers}
                   groups={block.groups}
                   variant={block.variant}
+                  advantagePlacement="below"
+                  collapsible
                   groupAdvantages={mapGroupAdvantages(
                     block.groups.map((g) => g.name),
                     advantages,

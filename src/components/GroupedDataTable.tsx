@@ -25,10 +25,11 @@ function TableScroll({ children }: { children: ReactNode }) {
 function useSyncedTableScroll(
   rootRef: RefObject<HTMLDivElement | null>,
   groupCount: number,
+  enabled: boolean,
 ) {
   useEffect(() => {
     const root = rootRef.current;
-    if (!root) return;
+    if (!root || !enabled) return;
 
     const panes = Array.from(
       root.querySelectorAll<HTMLElement>(".table-scroll"),
@@ -88,7 +89,79 @@ function useSyncedTableScroll(
       cancelAnimationFrame(rafId);
       disposers.forEach((dispose) => dispose());
     };
-  }, [rootRef, groupCount]);
+  }, [rootRef, groupCount, enabled]);
+}
+
+function GroupCharts({ group }: { group: DataGroup }) {
+  const hasVotes = group.chartSlices.length > 0;
+  const hasReg = (group.registrationSlices?.length ?? 0) > 0;
+  if (!hasVotes && !hasReg) return null;
+
+  return (
+    <div className="data-group-charts">
+      {hasReg ? (
+        <TurnoutPieChart
+          slices={group.registrationSlices}
+          caption="2026 VR"
+        />
+      ) : null}
+      {hasVotes ? (
+        <TurnoutPieChart slices={group.chartSlices} caption="Votes to Date" />
+      ) : null}
+    </div>
+  );
+}
+
+function GroupBody({
+  headers,
+  group,
+  advantage,
+  advantagePlacement,
+  showTableHead,
+}: {
+  headers: string[];
+  group: DataGroup;
+  advantage?: GeoAdvantage;
+  advantagePlacement: "above" | "below";
+  showTableHead: boolean;
+}) {
+  return (
+    <>
+      {advantagePlacement === "above" && advantage ? (
+        <div className="data-group-advantage">
+          <AdvantagePanel advantage={advantage} compact />
+        </div>
+      ) : null}
+      <div className="data-group-body">
+        <div className="data-group-table">
+          <TableScroll>
+            <table className="data-table">
+              <TableColGroup headers={headers} />
+              {showTableHead ? <TableHeadRow headers={headers} /> : null}
+              <tbody>
+                {group.rows.map((row, ri) => (
+                  <DataTableBodyRow
+                    key={ri}
+                    headers={headers}
+                    row={row}
+                    rowClass={group.rowClasses[ri]}
+                  />
+                ))}
+              </tbody>
+            </table>
+          </TableScroll>
+        </div>
+        <div className="data-group-chart">
+          <GroupCharts group={group} />
+        </div>
+      </div>
+      {advantagePlacement === "below" && advantage ? (
+        <div className="data-group-advantage data-group-advantage--below">
+          <AdvantagePanel advantage={advantage} compact />
+        </div>
+      ) : null}
+    </>
+  );
 }
 
 export function GroupedDataTable({
@@ -96,74 +169,83 @@ export function GroupedDataTable({
   groups,
   variant,
   groupAdvantages,
+  advantagePlacement = "above",
+  collapsible = false,
 }: {
   headers: string[];
   groups: DataGroup[];
   variant?: "default" | "current" | "historical" | "rural";
   groupAdvantages?: Record<string, GeoAdvantage>;
+  advantagePlacement?: "above" | "below";
+  /** District pages: each group starts collapsed showing only its name. */
+  collapsible?: boolean;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
-  useSyncedTableScroll(rootRef, groups.length);
+  useSyncedTableScroll(rootRef, groups.length, !collapsible);
 
   return (
     <div
       ref={rootRef}
-      className={`table-wrap table-wrap--${variant ?? "default"} grouped-table`}
+      className={[
+        `table-wrap table-wrap--${variant ?? "default"} grouped-table`,
+        collapsible ? "grouped-table--collapsible" : undefined,
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
-      <div className="grouped-table-sticky-head">
-        <div className="data-group grouped-table-sticky-head-row">
-          <div className="data-group-body">
-            <div className="data-group-table">
-              <TableScroll>
-                <table className="data-table">
-                  <TableColGroup headers={headers} />
-                  <TableHeadRow headers={headers} />
-                </table>
-              </TableScroll>
-            </div>
-            <div
-              className="data-group-chart data-group-chart--empty grouped-table-sticky-head-spacer"
-              aria-hidden
-            />
-          </div>
-        </div>
-      </div>
-      {groups.map((group) => (
-        <div key={group.name} className="data-group">
-          {groupAdvantages?.[group.name] ? (
-            <div className="data-group-advantage">
-              <AdvantagePanel
-                advantage={groupAdvantages[group.name]}
-                compact
+      {!collapsible ? (
+        <div className="grouped-table-sticky-head">
+          <div className="data-group grouped-table-sticky-head-row">
+            <div className="data-group-body">
+              <div className="data-group-table">
+                <TableScroll>
+                  <table className="data-table">
+                    <TableColGroup headers={headers} />
+                    <TableHeadRow headers={headers} />
+                  </table>
+                </TableScroll>
+              </div>
+              <div
+                className="data-group-chart data-group-chart--empty grouped-table-sticky-head-spacer"
+                aria-hidden
               />
             </div>
-          ) : null}
-          <div className="data-group-body">
-            <div className="data-group-table">
-              <TableScroll>
-                <table className="data-table">
-                  <TableColGroup headers={headers} />
-                  <tbody>
-                    {group.rows.map((row, ri) => (
-                      <DataTableBodyRow
-                        key={ri}
-                        headers={headers}
-                        row={row}
-                        rowClass={group.rowClasses[ri]}
-                      />
-                    ))}
-                  </tbody>
-                </table>
-              </TableScroll>
-            </div>
-            <div className="data-group-chart">
-              {group.chartSlices.length > 0 ? (
-                <TurnoutPieChart slices={group.chartSlices} />
-              ) : null}
-            </div>
           </div>
         </div>
-      ))}
+      ) : null}
+      {groups.map((group) => {
+        const advantage = groupAdvantages?.[group.name];
+        if (collapsible) {
+          return (
+            <details key={group.name} className="data-group district-disclosure">
+              <summary className="district-disclosure-summary">
+                <span className="district-disclosure-name">{group.name}</span>
+              </summary>
+              <div className="district-disclosure-body">
+                <GroupBody
+                  headers={headers}
+                  group={group}
+                  advantage={advantage}
+                  advantagePlacement={advantagePlacement}
+                  showTableHead
+                />
+              </div>
+            </details>
+          );
+        }
+
+        return (
+          <div key={group.name} className="data-group">
+            <GroupBody
+              headers={headers}
+              group={group}
+              advantage={advantage}
+              advantagePlacement={advantagePlacement}
+              showTableHead={false}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }

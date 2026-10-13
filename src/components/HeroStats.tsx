@@ -25,7 +25,7 @@ export function HeroStats({ statewide }: { statewide: SheetTable | undefined }) 
           <article className="stat-card">
             <p className="stat-label">Registered voters</p>
             <p className="stat-value">{hero.registered}</p>
-            <p className="stat-note">Active VR (SOS, as of Oct 1, 2026)</p>
+            <p className="stat-note">Registered voters in latest File 6</p>
           </article>
         </div>
         <p className="lead">{SITE.lead}</p>

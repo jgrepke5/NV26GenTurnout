@@ -9,15 +9,24 @@ import { parseCsvLine } from "./csv";
 
 export type MethodKey = "early" | "mail" | "eday" | "other";
 
+export type PartyBucket = Record<MethodKey, number> & { registered: number };
+
 export type PartyMethodCounts = {
-  REP: Record<MethodKey, number>;
-  DEM: Record<MethodKey, number>;
-  OTHER: Record<MethodKey, number>;
+  REP: PartyBucket;
+  DEM: PartyBucket;
+  OTHER: PartyBucket;
+  /** Sum of party registered counts (File 6 rows in this geography). */
   registered: number;
 };
 
 function emptyPartyMethods(): PartyMethodCounts {
-  const z = () => ({ early: 0, mail: 0, eday: 0, other: 0 });
+  const z = (): PartyBucket => ({
+    early: 0,
+    mail: 0,
+    eday: 0,
+    other: 0,
+    registered: 0,
+  });
   return { REP: z(), DEM: z(), OTHER: z(), registered: 0 };
 }
 
@@ -120,14 +129,18 @@ export async function aggregateVividCsv(
     const assembly = get("ASSEMBLY");
     const commission = get("COMMISSION");
 
-    // Registration universe
-    result.statewide.registered += 1;
-    if (county) ensure(result.counties, county).registered += 1;
-    if (congress) ensure(result.congress, congress).registered += 1;
-    if (senate) ensure(result.senate, senate).registered += 1;
-    if (assembly) ensure(result.assembly, assembly).registered += 1;
+    // Registration universe (every File 6 row, by VOTER_REG_PARTY)
+    const bumpRegistered = (b: PartyMethodCounts) => {
+      b[party].registered += 1;
+      b.registered += 1;
+    };
+    bumpRegistered(result.statewide);
+    if (county) bumpRegistered(ensure(result.counties, county));
+    if (congress) bumpRegistered(ensure(result.congress, congress));
+    if (senate) bumpRegistered(ensure(result.senate, senate));
+    if (assembly) bumpRegistered(ensure(result.assembly, assembly));
     if (county && commission) {
-      ensure(result.commission, `${county}|${commission}`).registered += 1;
+      bumpRegistered(ensure(result.commission, `${county}|${commission}`));
     }
 
     const status = get("BALLOT_STATUS");

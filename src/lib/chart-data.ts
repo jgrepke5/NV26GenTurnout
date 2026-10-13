@@ -57,15 +57,16 @@ function partyDisplayLabel(key: keyof typeof PARTY_CHART_COLORS): string {
 export function partySlicesFromRows(
   headers: string[],
   rows: CellValue[][],
+  valuePattern: RegExp = /votes to date|total votes/i,
 ): PieSlice[] {
-  const votesIdx = votesColumnIndex(headers);
-  if (votesIdx < 0) return [];
+  const valueIdx = votesColumnIndex(headers, valuePattern);
+  if (valueIdx < 0) return [];
 
   const slices: PieSlice[] = [];
   for (const row of rows) {
     const key = partyKey(String(row[0] ?? ""));
     if (!key) continue;
-    const value = parseVoteCount(row[votesIdx]);
+    const value = parseVoteCount(row[valueIdx]);
     if (value <= 0) continue;
     slices.push({
       label: partyDisplayLabel(key),
@@ -76,14 +77,22 @@ export function partySlicesFromRows(
   return slices;
 }
 
+export function partyRegistrationSlicesFromRows(
+  headers: string[],
+  rows: CellValue[][],
+): PieSlice[] {
+  return partySlicesFromRows(headers, rows, /'26\s*vr|2026\s*vr|26\s*vr/i);
+}
+
 export function peerHeaderSlices(
   headers: string[],
   peerRows: { name: string; headerRow: CellValue[] }[],
   names: string[],
   colors: Record<string, string>,
+  valuePattern: RegExp = /votes to date|total votes/i,
 ): PieSlice[] {
-  const votesIdx = votesColumnIndex(headers);
-  if (votesIdx < 0) return [];
+  const valueIdx = votesColumnIndex(headers, valuePattern);
+  if (valueIdx < 0) return [];
 
   const slices: PieSlice[] = [];
   for (const name of names) {
@@ -91,7 +100,7 @@ export function peerHeaderSlices(
       (p) => p.name.toLowerCase() === name.toLowerCase(),
     );
     if (!peer) continue;
-    const value = parseVoteCount(peer.headerRow[votesIdx]);
+    const value = parseVoteCount(peer.headerRow[valueIdx]);
     if (value <= 0) continue;
     const colorKey = name.toLowerCase().replace(/\s+/g, "");
     slices.push({
@@ -120,11 +129,13 @@ export function congressionalTotalDistrictSlices(
   headers: string[],
   peerRows: { name: string; headerRow: CellValue[] }[],
   districtNames: string[],
+  valuePattern: RegExp = /votes to date|total votes/i,
 ): PieSlice[] {
   return peerHeaderSlices(
     headers,
     peerRows,
     districtNames,
     CONGRESSIONAL_CHART_COLORS,
+    valuePattern,
   );
 }

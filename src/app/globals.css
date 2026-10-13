@@ -21,9 +21,9 @@
   --nav-height: calc(0.85rem * 2 + 0.82rem * 1.55 + 3px + 1px);
   --font-display: "Libre Baskerville", "Georgia", serif;
   --font-body: "Source Sans 3", "Helvetica Neue", sans-serif;
-  --max-width: 1120px;
-  --group-chart-width: 11.5rem;
-  --group-chart-gap: 1rem;
+  --max-width: 1480px;
+  --group-chart-width: 12.5rem;
+  --group-chart-gap: 1.25rem;
   --col-group-divider: #b8b0a4;
 }
 
@@ -758,9 +758,78 @@ a:hover {
   overflow: hidden;
 }
 
+.data-group-charts {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  min-width: 0;
+}
+
 .data-group-chart--empty {
   visibility: hidden;
   padding: 0;
+}
+
+.data-group-advantage--below {
+  margin-top: 0.15rem;
+}
+
+.district-disclosure {
+  padding: 0;
+}
+
+.district-disclosure > .district-disclosure-summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  user-select: none;
+}
+
+.district-disclosure > .district-disclosure-summary::-webkit-details-marker {
+  display: none;
+}
+
+.district-disclosure > .district-disclosure-summary::before {
+  content: "";
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--ink-muted);
+  border-bottom: 2px solid var(--ink-muted);
+  transform: rotate(-45deg);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+  margin-top: -0.1rem;
+}
+
+.district-disclosure[open] > .district-disclosure-summary::before {
+  transform: rotate(45deg);
+  margin-top: 0.1rem;
+}
+
+.district-disclosure-name {
+  min-width: 0;
+}
+
+.district-disclosure-body {
+  padding: 0 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.grouped-table--collapsible .district-disclosure + .district-disclosure {
+  border-top: 1px solid var(--rule);
 }
 
 .turnout-pie {
@@ -859,6 +928,8 @@ a:hover {
   .statewide-blocks .data-block-chart {
     align-self: center;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     width: 100%;
   }

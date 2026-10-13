@@ -42,10 +42,10 @@ function partyRows(b: PartyMethodCounts, labelCol: string): CellValue[][] {
     const eday = b[key].eday + b[key].other;
     const total = early + mail + eday;
     const methods = early + mail + eday;
-    const vr = b.registered; // party VR not split — leave blank for subrows? Use 0
+    const vr = b[key].registered;
     rows.push([
       label,
-      null, // VR only on header rows
+      vr ? formatCount(vr) : "0",
       early ? formatCount(early) : "0",
       mail ? formatCount(mail) : "0",
       eday ? formatCount(eday) : "0",
@@ -53,12 +53,20 @@ function partyRows(b: PartyMethodCounts, labelCol: string): CellValue[][] {
       methods > 0 ? formatPct(early / methods) : "—",
       methods > 0 ? formatPct(mail / methods) : "—",
       methods > 0 ? formatPct(eday / methods) : "—",
-      null,
+      vr > 0 ? formatPct(total / vr) : "—",
     ]);
   }
-  // Fix: party rows shouldn't use full registered. Leave VR empty.
   void labelCol;
   return rows;
+}
+
+function addPartyBuckets(into: PartyMethodCounts, from: PartyMethodCounts) {
+  for (const p of ["REP", "DEM", "OTHER"] as const) {
+    for (const m of ["early", "mail", "eday", "other", "registered"] as const) {
+      into[p][m] += from[p][m];
+    }
+  }
+  into.registered += from.registered;
 }
 
 function headerRow(name: string, b: PartyMethodCounts): CellValue[] {
@@ -106,37 +114,26 @@ export function buildCountySheet(agg: AggregateResult): SheetTable {
     .filter((c) => c !== "CLARK" && c !== "WASHOE")
     .sort();
 
-  const ruralBucket = {
-    REP: { early: 0, mail: 0, eday: 0, other: 0 },
-    DEM: { early: 0, mail: 0, eday: 0, other: 0 },
-    OTHER: { early: 0, mail: 0, eday: 0, other: 0 },
+  const ruralBucket: PartyMethodCounts = {
+    REP: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+    DEM: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+    OTHER: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
     registered: 0,
-  } satisfies PartyMethodCounts;
+  };
 
   for (const key of ruralKeys) {
-    const b = agg.counties.get(key)!;
-    for (const p of ["REP", "DEM", "OTHER"] as const) {
-      for (const m of ["early", "mail", "eday", "other"] as const) {
-        ruralBucket[p][m] += b[p][m];
-      }
-    }
-    ruralBucket.registered += b.registered;
+    addPartyBuckets(ruralBucket, agg.counties.get(key)!);
   }
 
   const totalBucket: PartyMethodCounts = {
-    REP: { early: 0, mail: 0, eday: 0, other: 0 },
-    DEM: { early: 0, mail: 0, eday: 0, other: 0 },
-    OTHER: { early: 0, mail: 0, eday: 0, other: 0 },
+    REP: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+    DEM: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+    OTHER: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
     registered: 0,
   };
   for (const b of [clark, washoe, ruralBucket]) {
     if (!b) continue;
-    for (const p of ["REP", "DEM", "OTHER"] as const) {
-      for (const m of ["early", "mail", "eday", "other"] as const) {
-        totalBucket[p][m] += b[p][m];
-      }
-    }
-    totalBucket.registered += b.registered;
+    addPartyBuckets(totalBucket, b);
   }
 
   if (clark) appendGroup(rows, "Clark", clark);
@@ -269,11 +266,12 @@ export function buildStatewideSheet(agg: AggregateResult): SheetTable {
     const eday = b[party].eday + b[party].other;
     const total = early + mail + eday;
     const methods = total;
+    const vr = b[party].registered;
     return [
       label,
-      null,
+      formatCount(vr),
       formatCount(total),
-      null,
+      vr > 0 ? formatPct(total / vr) : "—",
       methods > 0 ? formatPct(early / methods) : "—",
       methods > 0 ? formatPct(mail / methods) : "—",
       methods > 0 ? formatPct(eday / methods) : "—",

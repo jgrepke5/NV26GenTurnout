@@ -311,7 +311,7 @@ a:hover {
   content: "";
   position: absolute;
   top: 0;
-  bottom: 10px;
+  bottom: 0;
   width: 1.35rem;
   z-index: 2;
   pointer-events: none;

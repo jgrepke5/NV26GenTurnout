@@ -1,7 +1,7 @@
 import { fetchAndPersistSnapshot } from "../src/lib/cache";
 
 async function main() {
-  console.log("Syncing turnout data from NVSOS VIVID File 6…");
+  console.log("Syncing turnout data from NVSOS VIVID…");
   const snapshot = await fetchAndPersistSnapshot();
   console.log(`Done. Fetched at ${snapshot.fetchedAt}`);
   console.log(`  asOfDate=${snapshot.asOfDate} evDayIndex=${snapshot.evDayIndex}`);

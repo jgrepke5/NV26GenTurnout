@@ -59,7 +59,7 @@ export async function downloadToRaw(
     redirect: "follow",
   });
   if (!res.ok || !res.body) {
-    throw new Error(`Failed to download File 6 (${res.status})`);
+    throw new Error(`Failed to download VIVID extract (${res.status})`);
   }
   const nodeStream = createWriteStream(dest);
   // @ts-expect-error Node fetch body is a web stream

@@ -57,20 +57,20 @@ async function resolveCsvPath(): Promise<{
   // Try live discover + download
   try {
     const file = await discoverFile6();
-    if (!file) throw new Error("File 6 not found");
+    if (!file) throw new Error("VIVID extract not found");
     const zipPath = await downloadToRaw(file.url, "File6-latest.zip");
     const csvPath = await extractCsvFromZip(zipPath);
     return { csvPath, sourceUrl: file.url, sourceLabel: file.label };
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
     throw new Error(
-      `${msg}\n\nPlace the NVSOS File 6 zip at data/raw/File6.zip and run npm run sync again.`,
+      `${msg}\n\nPlace the NVSOS VIVID extract zip in data/raw/ and run npm run sync again.`,
     );
   }
 }
 
 export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
-  console.log("Resolving VIVID File 6…");
+  console.log("Resolving VIVID extract…");
   const { csvPath, sourceUrl, sourceLabel } = await resolveCsvPath();
   console.log(`  Using ${sourceLabel}: ${csvPath}`);
 
@@ -80,7 +80,7 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
   const agg = await aggregateVividCsv(csvPath);
   console.log(`  Accepted ballots: ${agg.acceptedVotes.toLocaleString()}`);
   console.log(
-    `  File 6 registered: ${agg.statewide.registered.toLocaleString()} (R ${agg.statewide.REP.registered.toLocaleString()} / D ${agg.statewide.DEM.registered.toLocaleString()} / Other ${agg.statewide.OTHER.registered.toLocaleString()})`,
+    `  VIVID registered: ${agg.statewide.registered.toLocaleString()} (R ${agg.statewide.REP.registered.toLocaleString()} / D ${agg.statewide.DEM.registered.toLocaleString()} / Other ${agg.statewide.OTHER.registered.toLocaleString()})`,
   );
 
   const asOfDate = todayPacificYmd();

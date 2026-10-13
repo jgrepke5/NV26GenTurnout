@@ -1,8 +1,8 @@
 import { readFile, writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { unstable_cache, revalidateTag } from "next/cache";
-import { fetchTurnoutSnapshot } from "./sheets";
 import { isCacheStale } from "./schedule";
+import { syncVividSnapshot } from "./ingest/sync-vivid";
 import type { TurnoutSnapshot } from "./types";
 
 const CACHE_TAG = "turnout-data";
@@ -11,7 +11,6 @@ const LOCAL_CACHE_PATH = path.join(process.cwd(), "data", "cache.json");
 
 const isVercel = Boolean(process.env.VERCEL);
 
-/** Set by `npm run build` after sync so SSG reads disk instead of refetching every tab. */
 function useBuildTimeCache(): boolean {
   return (
     process.env.NEXT_USE_SHEET_CACHE === "1" ||
@@ -20,8 +19,12 @@ function useBuildTimeCache(): boolean {
 }
 
 const getCachedSnapshot = unstable_cache(
-  async () => fetchTurnoutSnapshot(),
-  ["turnout-snapshot"],
+  async () => {
+    const local = await readLocalCache();
+    if (local) return local;
+    return syncVividSnapshot();
+  },
+  ["turnout-snapshot-vivid"],
   { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] },
 );
 
@@ -39,14 +42,13 @@ async function writeLocalCache(snapshot: TurnoutSnapshot): Promise<void> {
   await writeFile(LOCAL_CACHE_PATH, JSON.stringify(snapshot, null, 2), "utf-8");
 }
 
-/** Fetch from Google Sheets and write data/cache.json (build script / local sync). */
+/** Fetch from VIVID File 6 and write data/cache.json */
 export async function fetchAndPersistSnapshot(): Promise<TurnoutSnapshot> {
-  const snapshot = await fetchTurnoutSnapshot();
+  const snapshot = await syncVividSnapshot();
   await writeLocalCache(snapshot);
   return snapshot;
 }
 
-/** Bust cache and fetch fresh data (used by cron / API routes). */
 export async function refreshSnapshot(): Promise<TurnoutSnapshot> {
   revalidateTag(CACHE_TAG);
   return fetchAndPersistSnapshot();
@@ -74,7 +76,9 @@ export async function getSnapshot(force = false): Promise<TurnoutSnapshot> {
     return cached;
   }
 
-  const snapshot = await fetchTurnoutSnapshot();
-  await writeLocalCache(snapshot);
+  // Prefer existing cache if sync would need a huge File 6 download
+  if (cached) return cached;
+
+  const snapshot = await fetchAndPersistSnapshot();
   return snapshot;
 }

@@ -8,11 +8,11 @@ export const revalidate = 86400;
 export default async function CongressionalPage() {
   try {
     const snapshot = await loadTurnoutData();
-    const congressional = getSheet(snapshot, "Congressional");
+    const sheet = getSheet(snapshot, "Congressional");
 
     return (
       <PageShell fetchedAt={snapshot.fetchedAt}>
-        <CongressionalView sheet={congressional} />
+        <CongressionalView sheet={sheet} advantages={snapshot.advantages} />
       </PageShell>
     );
   } catch (err) {

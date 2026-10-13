@@ -10,16 +10,13 @@ export default async function StatewidePage() {
   try {
     const snapshot = await loadTurnoutData();
     const statewide = getSheet(snapshot, "Statewide");
-    const turnoutComparison = snapshot.sheets.find(
-      (s) => s.title.toLowerCase() === "turnout comparison by state",
-    );
 
     return (
-      <PageShell fetchedAt={snapshot.fetchedAt} showComparisonNote>
+      <PageShell fetchedAt={snapshot.fetchedAt}>
         <HeroStats statewide={statewide} />
         <StatewideView
           sheet={statewide}
-          turnoutComparison={turnoutComparison ?? null}
+          advantages={snapshot.advantages}
         />
       </PageShell>
     );

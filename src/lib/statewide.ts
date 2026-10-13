@@ -1,5 +1,4 @@
 import { partySlicesFromRows, type PieSlice } from "./chart-data";
-import { buildNationwideComparisonBlock } from "./turnout-comparison";
 import type { CellValue, SheetTable } from "./types";
 
 export interface TableBlock {
@@ -23,45 +22,17 @@ const CURRENT_COLUMNS: ColumnSpec[] = [
     label: "Party Affiliation",
   },
   {
-    match: (h) => /'26\s*vr/i.test(h),
+    match: (h) => /'26\s*vr|2026 vr/i.test(h),
     label: "2026 VR",
   },
   { match: (h) => /votes to date/i.test(h), label: "Votes to Date" },
   {
-    match: (h) => /'26\s*to\s*%/i.test(h),
+    match: (h) => /'26\s*to\s*%|2026 turnout/i.test(h),
     label: "2026 Turnout %",
   },
   { match: (h) => /% early votes/i.test(h), label: "% Early Votes" },
   { match: (h) => /% mail votes/i.test(h), label: "% Mail Votes" },
   { match: (h) => /% e-day votes/i.test(h), label: "% E-Day Votes" },
-];
-
-const HISTORICAL_COLUMNS: ColumnSpec[] = [
-  {
-    match: (h) => /party affiliation/i.test(h),
-    label: "Party Affiliation",
-  },
-  {
-    match: (h) => /'14\s*to\s*%/i.test(h),
-    label: "2014 Turnout %",
-  },
-  {
-    match: (h) => /'22\s*to\s*%/i.test(h),
-    label: "2022 Turnout %",
-  },
-  { match: (h) => /votes to date/i.test(h), label: "Votes to Date" },
-  {
-    match: (h) => /'26\s*to\s*%/i.test(h),
-    label: "2026 Turnout %",
-  },
-  {
-    match: (h) => /% to\s*'14/i.test(h),
-    label: "% to 2014 Turnout",
-  },
-  {
-    match: (h) => /% to\s*'22/i.test(h),
-    label: "% to 2022 Turnout",
-  },
 ];
 
 function findColumnIndex(headers: string[], spec: ColumnSpec): number {
@@ -102,24 +73,8 @@ function isTitleRow(label: string): boolean {
   );
 }
 
-export function buildStatewideBlocks(
-  sheet: SheetTable,
-  turnoutComparison?: SheetTable | null,
-): TableBlock[] {
-  const blocks: TableBlock[] = [
+export function buildStatewideBlocks(sheet: SheetTable): TableBlock[] {
+  return [
     projectBlock(sheet, CURRENT_COLUMNS, "2026 Turnout by Party", "current"),
-    projectBlock(
-      sheet,
-      HISTORICAL_COLUMNS,
-      "Historical Comparison",
-      "historical",
-    ),
   ];
-
-  if (turnoutComparison) {
-    const nationwide = buildNationwideComparisonBlock(turnoutComparison);
-    if (nationwide) blocks.push(nationwide);
-  }
-
-  return blocks;
 }

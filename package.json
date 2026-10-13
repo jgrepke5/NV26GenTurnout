@@ -1,12 +1,13 @@
 {
-  "name": "nv-primary-voter-turnout",
-  "version": "1.0.1",
+  "name": "nv-general-voter-turnout",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "tsx scripts/sync.ts && NEXT_USE_SHEET_CACHE=1 next build",
+    "build": "tsx scripts/import-historic.ts && tsx scripts/sync.ts && NEXT_USE_SHEET_CACHE=1 next build",
     "start": "next start",
     "sync": "tsx scripts/sync.ts",
+    "import-historic": "tsx scripts/import-historic.ts",
     "lint": "next lint"
   },
   "dependencies": {

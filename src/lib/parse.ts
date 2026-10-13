@@ -151,9 +151,11 @@ export function extractHeroMetrics(
   if (!totalRow) return null;
 
   const headers = statewide.headers;
-  const votesIdx = headers.findIndex((h) => /votes to date/i.test(h));
-  const turnoutIdx = headers.findIndex((h) => /'26 to %|26 to %/i.test(h));
-  const regIdx = headers.findIndex((h) => /'26 vr|26 vr/i.test(h));
+  const votesIdx = headers.findIndex((h) => /votes to date|total votes/i.test(h));
+  const turnoutIdx = headers.findIndex((h) =>
+    /'26 to %|26 to %|2026 turnout|turnout %/i.test(h),
+  );
+  const regIdx = headers.findIndex((h) => /'26 vr|26 vr|2026 vr/i.test(h));
 
   const fmt = (i: number) =>
     i >= 0 && totalRow[i] != null ? String(totalRow[i]) : "—";

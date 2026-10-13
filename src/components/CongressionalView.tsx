@@ -1,8 +1,16 @@
+import type { GeoAdvantage } from "@/lib/advantage";
 import { buildCongressionalBlocks } from "@/lib/congressional";
+import { congressGroupKey, mapGroupAdvantages } from "@/lib/geo-keys";
 import type { SheetTable } from "@/lib/types";
 import { GroupedDataTable } from "./GroupedDataTable";
 
-export function CongressionalView({ sheet }: { sheet: SheetTable }) {
+export function CongressionalView({
+  sheet,
+  advantages,
+}: {
+  sheet: SheetTable;
+  advantages?: GeoAdvantage[];
+}) {
   const blocks = buildCongressionalBlocks(sheet);
 
   return (
@@ -23,6 +31,11 @@ export function CongressionalView({ sheet }: { sheet: SheetTable }) {
                 headers={block.headers}
                 groups={block.groups}
                 variant={block.variant}
+                groupAdvantages={mapGroupAdvantages(
+                  block.groups.map((g) => g.name),
+                  advantages,
+                  congressGroupKey,
+                )}
               />
             </div>
           </section>

@@ -1,19 +1,32 @@
+import type { GeoAdvantage } from "@/lib/advantage";
 import { buildStatewideBlocks } from "@/lib/statewide";
 import type { SheetTable } from "@/lib/types";
+import { AdvantagePanel, findAdvantage } from "./AdvantagePanel";
 import { DataTable } from "./DataTable";
 import { TurnoutPieChart } from "./TurnoutPieChart";
 
 export function StatewideView({
   sheet,
-  turnoutComparison,
+  advantages,
 }: {
   sheet: SheetTable;
-  turnoutComparison?: SheetTable | null;
+  advantages?: GeoAdvantage[];
 }) {
-  const blocks = buildStatewideBlocks(sheet, turnoutComparison);
+  const blocks = buildStatewideBlocks(sheet);
+  const statewideAdv = findAdvantage(advantages, "statewide");
 
   return (
     <div className="statewide-blocks">
+      {statewideAdv ? (
+        <section className="section data-block data-block--current">
+          <div className="container">
+            <header className="section-header">
+              <h2 className="section-title">R/D Ballot Advantage</h2>
+            </header>
+            <AdvantagePanel advantage={statewideAdv} />
+          </div>
+        </section>
+      ) : null}
       {blocks.map((block) => (
         <section
           key={block.title}
@@ -37,17 +50,12 @@ export function StatewideView({
                 </aside>
               </div>
             ) : (
-              <>
-                <DataTable
-                  headers={block.headers}
-                  rows={block.rows}
-                  variant={block.variant}
-                  wrapHeaders={block.wrapHeaders}
-                />
-                {block.footnote ? (
-                  <p className="data-block-footnote">{block.footnote}</p>
-                ) : null}
-              </>
+              <DataTable
+                headers={block.headers}
+                rows={block.rows}
+                variant={block.variant}
+                wrapHeaders={block.wrapHeaders}
+              />
             )}
           </div>
         </section>

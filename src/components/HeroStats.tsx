@@ -1,4 +1,5 @@
 import { extractHeroMetrics } from "@/lib/parse";
+import { SITE } from "@/lib/site-config";
 import type { SheetTable } from "@/lib/types";
 
 export function HeroStats({ statewide }: { statewide: SheetTable | undefined }) {
@@ -14,7 +15,7 @@ export function HeroStats({ statewide }: { statewide: SheetTable | undefined }) 
           <article className="stat-card">
             <p className="stat-label">Votes cast to date</p>
             <p className="stat-value">{hero.votes}</p>
-            <p className="stat-note">Statewide total, all parties</p>
+            <p className="stat-note">Statewide total, accepted ballots</p>
           </article>
           <article className="stat-card">
             <p className="stat-label">2026 turnout rate</p>
@@ -24,15 +25,10 @@ export function HeroStats({ statewide }: { statewide: SheetTable | undefined }) 
           <article className="stat-card">
             <p className="stat-label">Registered voters</p>
             <p className="stat-value">{hero.registered}</p>
-            <p className="stat-note">Active registration base</p>
+            <p className="stat-note">Voters in latest VIVID extract</p>
           </article>
         </div>
-        <p className="lead">
-          Nevada&apos;s 2026 primary is underway. The tables below show
-          current participation and historical turnout benchmarks by party.
-          Use the tabs above for county, congressional, legislative, and
-          commission district breakouts.
-        </p>
+        <p className="lead">{SITE.lead}</p>
       </div>
     </section>
   );

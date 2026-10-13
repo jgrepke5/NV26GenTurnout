@@ -8,11 +8,11 @@ export const revalidate = 86400;
 export default async function CommissionPage() {
   try {
     const snapshot = await loadTurnoutData();
-    const commission = getSheet(snapshot, "Commission");
+    const sheet = getSheet(snapshot, "Commission");
 
     return (
       <PageShell fetchedAt={snapshot.fetchedAt}>
-        <CommissionView sheet={commission} />
+        <CommissionView sheet={sheet} advantages={snapshot.advantages} />
       </PageShell>
     );
   } catch (err) {

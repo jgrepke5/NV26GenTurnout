@@ -4,7 +4,7 @@ import { DataTable } from "./DataTable";
 const SECTION_COPY: Record<string, { intro: string }> = {
   Statewide: {
     intro:
-      "Party-by-party turnout compared with 2014 and 2022 primaries, plus early, mail, and election day ballot splits.",
+      "Party-by-party turnout plus early, mail, and election day ballot splits.",
   },
   County: {
     intro:
@@ -12,13 +12,13 @@ const SECTION_COPY: Record<string, { intro: string }> = {
   },
   Legislative: {
     intro:
-      "Participation in competitive legislative districts shaping control of the State Legislature.",
+      "Participation in state senate and assembly districts.",
   },
 };
 
 export function DataSection({ sheet }: { sheet: SheetTable }) {
   const copy = SECTION_COPY[sheet.title] ?? {
-    intro: "Figures from the tracking spreadsheet.",
+    intro: "Figures from the VIVID ballot-status extract.",
   };
 
   return (

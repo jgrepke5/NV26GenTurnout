@@ -1,8 +1,16 @@
+import type { GeoAdvantage } from "@/lib/advantage";
 import { buildCountyBlocks } from "@/lib/county";
+import { countyGroupKey, mapGroupAdvantages } from "@/lib/geo-keys";
 import type { SheetTable } from "@/lib/types";
 import { GroupedDataTable } from "./GroupedDataTable";
 
-export function CountyView({ sheet }: { sheet: SheetTable }) {
+export function CountyView({
+  sheet,
+  advantages,
+}: {
+  sheet: SheetTable;
+  advantages?: GeoAdvantage[];
+}) {
   const blocks = buildCountyBlocks(sheet);
 
   return (
@@ -28,6 +36,11 @@ export function CountyView({ sheet }: { sheet: SheetTable }) {
                 headers={block.headers}
                 groups={block.groups}
                 variant={block.variant}
+                groupAdvantages={mapGroupAdvantages(
+                  block.groups.map((g) => g.name),
+                  advantages,
+                  countyGroupKey,
+                )}
               />
             </div>
           </section>

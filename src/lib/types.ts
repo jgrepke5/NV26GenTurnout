@@ -1,3 +1,5 @@
+import type { GeoAdvantage } from "./advantage";
+
 export type CellValue = string | number | null;
 
 export interface SheetMeta {
@@ -17,4 +19,11 @@ export interface TurnoutSnapshot {
   fetchedAt: string;
   sheets: SheetTable[];
   sourceUrl: string;
+  /** Source file hash or URL for idempotency */
+  sourceHash?: string;
+  /** Pacific date this snapshot represents */
+  asOfDate?: string;
+  /** EV day index aligned to historic series */
+  evDayIndex?: number;
+  advantages?: GeoAdvantage[];
 }

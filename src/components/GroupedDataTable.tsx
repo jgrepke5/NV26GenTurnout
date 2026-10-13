@@ -1,5 +1,6 @@
 "use client";
 
+import type { GeoAdvantage } from "@/lib/advantage";
 import type { DataGroup } from "@/lib/breakout-table";
 import { columnGroupClasses, isNumericHeader } from "@/lib/table-headers";
 import type { CellValue } from "@/lib/types";
@@ -9,6 +10,7 @@ import {
   type ReactNode,
   type RefObject,
 } from "react";
+import { AdvantagePanel } from "./AdvantagePanel";
 import { RowLabel } from "./RowLabel";
 import { TableColGroup } from "./TableColGroup";
 import { TableHeadRow } from "./TableHeadRow";
@@ -93,10 +95,12 @@ export function GroupedDataTable({
   headers,
   groups,
   variant,
+  groupAdvantages,
 }: {
   headers: string[];
   groups: DataGroup[];
   variant?: "default" | "current" | "historical" | "rural";
+  groupAdvantages?: Record<string, GeoAdvantage>;
 }) {
   const rootRef = useRef<HTMLDivElement>(null);
   useSyncedTableScroll(rootRef, groups.length);
@@ -141,13 +145,17 @@ export function GroupedDataTable({
               </table>
             </TableScroll>
           </div>
-          {group.chartSlices.length > 0 ? (
-            <div className="data-group-chart">
+          <div className="data-group-chart">
+            {groupAdvantages?.[group.name] ? (
+              <AdvantagePanel
+                advantage={groupAdvantages[group.name]}
+                compact
+              />
+            ) : null}
+            {group.chartSlices.length > 0 ? (
               <TurnoutPieChart slices={group.chartSlices} />
-            </div>
-          ) : (
-            <div className="data-group-chart data-group-chart--empty" aria-hidden />
-          )}
+            ) : null}
+          </div>
         </div>
       ))}
     </div>

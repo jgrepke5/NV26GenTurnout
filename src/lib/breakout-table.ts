@@ -26,7 +26,7 @@ type ColumnSpec = {
 
 const DATA_COLUMNS: ColumnSpec[] = [
   {
-    match: (h) => /'26\s*vr/i.test(h),
+    match: (h) => /'26\s*vr|2026\s*vr/i.test(h),
     label: "2026 VR",
   },
   { match: (h) => /early voted/i.test(h), label: "Early Voted" },

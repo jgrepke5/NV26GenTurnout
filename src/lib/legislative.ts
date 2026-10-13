@@ -16,9 +16,8 @@ const LEGISLATIVE_CONFIG: BreakoutTableConfig = {
     isMarkerRow(label, row, layout, (l) =>
       /non-competitive legislative districts/i.test(l),
     ),
-  primaryBlockTitle: "Competitive Legislative Districts",
-  secondaryBlockTitle:
-    "Districts Where Primary will Likely Determine Final Outcome",
+  primaryBlockTitle: "State Senate Districts",
+  secondaryBlockTitle: "Assembly Districts",
 };
 
 export function buildLegislativeBlocks(

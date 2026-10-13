@@ -3,6 +3,8 @@ node_modules
 out
 .env
 .env.local
-data/cache.json
+data/raw/*
+!data/raw/.gitkeep
+data/history/
 *.pem
 .DS_Store

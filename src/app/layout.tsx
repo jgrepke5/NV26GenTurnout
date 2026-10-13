@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
+import { SITE } from "@/lib/site-config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "2026 Nevada Primary Turnout",
-  description:
-    "Live reporting on Nevada’s 2026 primary election turnout — statewide, by county, and in competitive legislative and congressional districts.",
+  title: SITE.title,
+  description: SITE.description,
   openGraph: {
-    title: "2026 Nevada Primary Turnout",
-    description:
-      "Turnout figures updated daily at noon Pacific from official tracking data.",
+    title: SITE.title,
+    description: SITE.ogDescription,
     type: "website",
   },
 };

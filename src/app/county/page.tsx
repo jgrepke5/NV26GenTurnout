@@ -12,7 +12,7 @@ export default async function CountyPage() {
 
     return (
       <PageShell fetchedAt={snapshot.fetchedAt}>
-        <CountyView sheet={county} />
+        <CountyView sheet={county} advantages={snapshot.advantages} />
       </PageShell>
     );
   } catch (err) {

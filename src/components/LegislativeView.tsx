@@ -1,8 +1,16 @@
+import type { GeoAdvantage } from "@/lib/advantage";
+import { legislativeGroupKey, mapGroupAdvantages } from "@/lib/geo-keys";
 import { buildLegislativeBlocks } from "@/lib/legislative";
 import type { SheetTable } from "@/lib/types";
 import { GroupedDataTable } from "./GroupedDataTable";
 
-export function LegislativeView({ sheet }: { sheet: SheetTable }) {
+export function LegislativeView({
+  sheet,
+  advantages,
+}: {
+  sheet: SheetTable;
+  advantages?: GeoAdvantage[];
+}) {
   const blocks = buildLegislativeBlocks(sheet);
 
   return (
@@ -23,6 +31,11 @@ export function LegislativeView({ sheet }: { sheet: SheetTable }) {
                 headers={block.headers}
                 groups={block.groups}
                 variant={block.variant}
+                groupAdvantages={mapGroupAdvantages(
+                  block.groups.map((g) => g.name),
+                  advantages,
+                  legislativeGroupKey,
+                )}
               />
             </div>
           </section>

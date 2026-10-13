@@ -20,14 +20,14 @@ npm run sync              # aggregates File 6 → data/cache.json
 npm run dev               # http://localhost:3000
 ```
 
-`npm run build` runs historic import + sync, then Next.js with the on-disk cache.
+`npm run build` imports historic series and builds from committed `data/cache.json` (File 6 is too large for Vercel). Refresh data locally with `npm run sync`, commit the updated `data/cache.json`, then push.
 
 ## Deploy (Vercel)
 
 1. Framework: Next.js; Build Command: `npm run build`; Output Directory: empty.
-2. Commit `data/historic-rd-advantage.json` and a fresh `data/cache.json` (aggregates only — do **not** commit raw File 6).
-3. Set `CRON_SECRET`. Optional: `UPDATE_FEED_URL`.
-4. Cron hits `/api/cron` — if NVSOS Incapsula blocks the fetch, drop File 6 into `data/raw/` in CI or re-run sync locally and redeploy.
+2. Keep `data/historic-rd-advantage.json` and `data/cache.json` committed (do **not** commit raw File 6).
+3. Set `CRON_SECRET` if you use the sync API.
+4. After each new VIVID File 6: run `npm run sync` locally, commit `data/cache.json`, push to deploy.
 
 ## Manual refresh
 

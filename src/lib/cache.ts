@@ -20,9 +20,12 @@ function useBuildTimeCache(): boolean {
 
 const getCachedSnapshot = unstable_cache(
   async () => {
+    // On Vercel, prefer committed aggregates — raw File 6 is not available.
     const local = await readLocalCache();
     if (local) return local;
-    return syncVividSnapshot();
+    throw new Error(
+      "Missing data/cache.json. Run npm run sync locally and commit the cache.",
+    );
   },
   ["turnout-snapshot-vivid"],
   { revalidate: REVALIDATE_SECONDS, tags: [CACHE_TAG] },

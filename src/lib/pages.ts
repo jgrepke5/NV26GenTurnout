@@ -1,8 +1,10 @@
 import { getSnapshot } from "./cache";
+import { applyOfficialVrToSnapshot } from "./voter-registration";
 import type { TurnoutSnapshot } from "./types";
 
 export async function loadTurnoutData(): Promise<TurnoutSnapshot> {
-  return getSnapshot();
+  const snapshot = await getSnapshot();
+  return applyOfficialVrToSnapshot(snapshot);
 }
 
 export function getSheet(snapshot: TurnoutSnapshot, title: string) {

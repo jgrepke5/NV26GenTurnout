@@ -10,8 +10,10 @@ export function Footer() {
             {SITE.sourceName}
           </a>{" "}
           File 6 extract. Only ballots with status Accepted and a vote method
-          are counted as cast. Active voter registration totals are from the
-          Nevada Secretary of State reports as of October 1, 2026.
+          are counted as cast.           Active voter registration totals (county, congressional, and
+          legislative) are from the Nevada Secretary of State reports as of
+          October 1, 2026. Commission districts do not publish matching SOS
+          VR totals, so that column is left blank there.
         </p>
         <p>
           This page refreshes when a new VIVID File 6 extract is synced.

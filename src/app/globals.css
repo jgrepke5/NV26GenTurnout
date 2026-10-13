@@ -290,23 +290,28 @@ a:hover {
 }
 
 .table-wrap {
-  overflow: visible;
+  overflow: hidden;
   border: 1px solid var(--rule);
   background: var(--paper-elevated);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
   border-radius: 2px;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .table-scroll {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .table-scroll .data-table {
   min-width: max-content;
 }
 
+/* Sticky header needs a visible ancestor; clip happens on .data-group-table */
 .table-wrap.grouped-table {
   overflow: visible;
 }
@@ -659,20 +664,27 @@ a:hover {
   flex-wrap: wrap;
   align-items: flex-start;
   gap: 1.5rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .data-block-table {
-  flex: 1;
-  min-width: min(100%, 520px);
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .data-block-chart {
   flex: 0 0 auto;
   padding: 0.5rem 0;
+  max-width: 100%;
 }
 
 .grouped-table {
   overflow: visible;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .data-group {
@@ -705,12 +717,22 @@ a:hover {
   align-items: start;
   gap: 0 var(--group-chart-gap);
   min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .data-group-table {
   grid-column: 1;
   min-width: 0;
+  max-width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.data-group-table .table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 .data-group-table .data-table {
@@ -892,17 +914,19 @@ a:hover {
 }
 
 @media (min-width: 721px) {
-  .table-scroll {
-    overflow-x: visible;
-  }
-
+  /* Keep horizontal scroll containment — never overflow-x: visible here;
+     that lets wide tables spill into the pie / chart column. */
   .table-scroll .data-table {
     min-width: 640px;
-    width: 100%;
+    width: max(100%, 640px);
   }
 
   .data-group-table .table-scroll .data-table {
     table-layout: fixed;
+  }
+
+  .data-block-table .table-scroll .data-table {
+    width: max(100%, 640px);
   }
 }
 

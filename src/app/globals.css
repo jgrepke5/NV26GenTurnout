@@ -22,6 +22,7 @@
   --font-display: "Libre Baskerville", "Georgia", serif;
   --font-body: "Source Sans 3", "Helvetica Neue", sans-serif;
   --max-width: 1480px;
+  --table-min-width: 1050px;
   --group-chart-width: 12.5rem;
   --group-chart-gap: 1.25rem;
   --col-group-divider: #b8b0a4;
@@ -337,7 +338,7 @@ a:hover {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.88rem;
-  min-width: 640px;
+  min-width: var(--table-min-width);
 }
 
 .data-table th,
@@ -371,7 +372,7 @@ a:hover {
 .table-wrap--wrap-headers .data-table {
   table-layout: auto;
   width: max-content;
-  min-width: min(100%, 640px);
+  min-width: min(100%, var(--table-min-width));
 }
 
 .table-wrap--wrap-headers .data-table th {
@@ -456,7 +457,7 @@ a:hover {
 }
 
 .grouped-table-sticky-head .data-group-table .data-table {
-  min-width: 640px;
+  min-width: var(--table-min-width);
   table-layout: fixed;
   margin-bottom: 0;
 }
@@ -736,7 +737,7 @@ a:hover {
 }
 
 .data-group-table .data-table {
-  min-width: 640px;
+  min-width: var(--table-min-width);
   table-layout: fixed;
 }
 
@@ -954,8 +955,8 @@ a:hover {
   }
 
   .grouped-table .table-scroll .data-table {
-    width: 640px;
-    min-width: 640px;
+    width: var(--table-min-width);
+    min-width: var(--table-min-width);
     table-layout: fixed;
   }
 
@@ -977,8 +978,8 @@ a:hover {
   /* Keep horizontal scroll containment — never overflow-x: visible here;
      that lets wide tables spill into the pie / chart column. */
   .table-scroll .data-table {
-    min-width: 640px;
-    width: max(100%, 640px);
+    min-width: var(--table-min-width);
+    width: max(100%, var(--table-min-width));
   }
 
   .data-group-table .table-scroll .data-table {
@@ -986,7 +987,7 @@ a:hover {
   }
 
   .data-block-table .table-scroll .data-table {
-    width: max(100%, 640px);
+    width: max(100%, var(--table-min-width));
   }
 }
 

@@ -8,6 +8,7 @@ import {
 } from "../advantage";
 import { SITE } from "../site-config";
 import type { TurnoutSnapshot } from "../types";
+import { applyOfficialVr, loadOfficialVr } from "../voter-registration";
 import { aggregateVividCsv } from "./aggregate";
 import { snapshotFromAggregate } from "./build-sheets";
 import { discoverFile6 } from "./discover";
@@ -77,9 +78,13 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
   const sourceHash = await hashStream(csvPath);
   console.log(`  Hash ${sourceHash}`);
   console.log("Aggregating (streaming)…");
-  const agg = await aggregateVividCsv(csvPath);
+  let agg = await aggregateVividCsv(csvPath);
+  const vr = await loadOfficialVr();
+  agg = applyOfficialVr(agg, vr);
   console.log(`  Accepted ballots: ${agg.acceptedVotes.toLocaleString()}`);
-  console.log(`  Registered rows: ${agg.statewide.registered.toLocaleString()}`);
+  console.log(
+    `  Official VR (as of ${vr.asOf}): ${agg.statewide.registered.toLocaleString()}`,
+  );
 
   const asOfDate = todayPacificYmd();
   const evDayIndex = evDayIndexForDate(

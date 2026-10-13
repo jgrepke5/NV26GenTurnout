@@ -50,7 +50,7 @@ function partyKey(label: string): keyof typeof PARTY_CHART_COLORS | null {
 }
 
 function partyDisplayLabel(key: keyof typeof PARTY_CHART_COLORS): string {
-  if (key === "nonpartisan") return "Non-Partisan / 3rd Party";
+  if (key === "nonpartisan") return "Non-Partisan";
   return key.charAt(0).toUpperCase() + key.slice(1);
 }
 

@@ -25,14 +25,14 @@ export function countyGroupKey(name: string): string | null {
 
 export function congressGroupKey(name: string): string | null {
   const m = name.trim().match(/^CD\s*(\d+)/i);
-  return m ? `congress-${m[1]}` : null;
+  return m ? `congress-${Number(m[1])}` : null;
 }
 
 export function legislativeGroupKey(name: string): string | null {
   const sd = name.trim().match(/^SD\s*(\d+)/i);
-  if (sd) return `senate-${sd[1]}`;
+  if (sd) return `senate-${Number(sd[1])}`;
   const ad = name.trim().match(/^AD\s*(\d+)/i);
-  if (ad) return `assembly-${ad[1]}`;
+  if (ad) return `assembly-${Number(ad[1])}`;
   return null;
 }
 

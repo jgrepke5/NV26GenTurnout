@@ -5,12 +5,13 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container">
         <p>
-          Ballot and registration figures are aggregated from the{" "}
+          Ballot figures are aggregated from the{" "}
           <a href={SITE.sourceUrl} target="_blank" rel="noopener noreferrer">
             {SITE.sourceName}
           </a>{" "}
-          voter list and ballot status files. Only ballots with status Accepted
-          and a vote method are counted as cast.
+          File 6 extract. Only ballots with status Accepted and a vote method
+          are counted as cast. Active voter registration totals are from the
+          Nevada Secretary of State reports as of October 1, 2026.
         </p>
         <p>
           This page refreshes when a new VIVID File 6 extract is synced.

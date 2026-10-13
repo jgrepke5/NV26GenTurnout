@@ -112,49 +112,55 @@ export function GroupedDataTable({
     >
       <div className="grouped-table-sticky-head">
         <div className="data-group grouped-table-sticky-head-row">
-          <div className="data-group-table">
-            <TableScroll>
-              <table className="data-table">
-                <TableColGroup headers={headers} />
-                <TableHeadRow headers={headers} />
-              </table>
-            </TableScroll>
+          <div className="data-group-body">
+            <div className="data-group-table">
+              <TableScroll>
+                <table className="data-table">
+                  <TableColGroup headers={headers} />
+                  <TableHeadRow headers={headers} />
+                </table>
+              </TableScroll>
+            </div>
+            <div
+              className="data-group-chart data-group-chart--empty grouped-table-sticky-head-spacer"
+              aria-hidden
+            />
           </div>
-          <div
-            className="data-group-chart data-group-chart--empty grouped-table-sticky-head-spacer"
-            aria-hidden
-          />
         </div>
       </div>
       {groups.map((group) => (
         <div key={group.name} className="data-group">
-          <div className="data-group-table">
-            <TableScroll>
-              <table className="data-table">
-                <TableColGroup headers={headers} />
-                <tbody>
-                  {group.rows.map((row, ri) => (
-                    <DataTableBodyRow
-                      key={ri}
-                      headers={headers}
-                      row={row}
-                      rowClass={group.rowClasses[ri]}
-                    />
-                  ))}
-                </tbody>
-              </table>
-            </TableScroll>
-          </div>
-          <div className="data-group-chart">
-            {groupAdvantages?.[group.name] ? (
+          {groupAdvantages?.[group.name] ? (
+            <div className="data-group-advantage">
               <AdvantagePanel
                 advantage={groupAdvantages[group.name]}
                 compact
               />
-            ) : null}
-            {group.chartSlices.length > 0 ? (
-              <TurnoutPieChart slices={group.chartSlices} />
-            ) : null}
+            </div>
+          ) : null}
+          <div className="data-group-body">
+            <div className="data-group-table">
+              <TableScroll>
+                <table className="data-table">
+                  <TableColGroup headers={headers} />
+                  <tbody>
+                    {group.rows.map((row, ri) => (
+                      <DataTableBodyRow
+                        key={ri}
+                        headers={headers}
+                        row={row}
+                        rowClass={group.rowClasses[ri]}
+                      />
+                    ))}
+                  </tbody>
+                </table>
+              </TableScroll>
+            </div>
+            <div className="data-group-chart">
+              {group.chartSlices.length > 0 ? (
+                <TurnoutPieChart slices={group.chartSlices} />
+              ) : null}
+            </div>
           </div>
         </div>
       ))}

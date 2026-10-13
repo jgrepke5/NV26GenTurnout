@@ -165,7 +165,7 @@ export function buildCongressionalSheet(agg: AggregateResult): SheetTable {
     (a, b) => Number(a) - Number(b) || a.localeCompare(b),
   );
   for (const cd of cds) {
-    appendGroup(rows, `CD${cd}`, agg.congress.get(cd)!);
+    appendGroup(rows, `CD${Number(cd)}`, agg.congress.get(cd)!);
   }
   return {
     title: "Congressional",
@@ -184,7 +184,7 @@ export function buildLegislativeSheet(agg: AggregateResult): SheetTable {
     (a, b) => Number(a) - Number(b) || a.localeCompare(b),
   );
   for (const sd of senates) {
-    appendGroup(rows, `SD${sd}`, agg.senate.get(sd)!);
+    appendGroup(rows, `SD${Number(sd)}`, agg.senate.get(sd)!);
   }
 
   rows.push(["NON-COMPETITIVE LEGISLATIVE DISTRICTS"]);
@@ -193,7 +193,7 @@ export function buildLegislativeSheet(agg: AggregateResult): SheetTable {
     (a, b) => Number(a) - Number(b) || a.localeCompare(b),
   );
   for (const ad of assemblies) {
-    appendGroup(rows, `AD${ad}`, agg.assembly.get(ad)!);
+    appendGroup(rows, `AD${Number(ad)}`, agg.assembly.get(ad)!);
   }
 
   return {
@@ -317,9 +317,10 @@ function geoAdvantages(
   for (const [cd, b] of [...agg.congress.entries()].sort(
     (a, b) => Number(a[0]) - Number(b[0]),
   )) {
+    const n = Number(cd);
     list.push({
-      geoKey: `congress-${cd}`,
-      label: `CD${cd}`,
+      geoKey: `congress-${n}`,
+      label: `CD${n}`,
       metrics: advantageFromBucket(b),
     });
   }
@@ -327,9 +328,10 @@ function geoAdvantages(
   for (const [sd, b] of [...agg.senate.entries()].sort(
     (a, b) => Number(a[0]) - Number(b[0]),
   )) {
+    const n = Number(sd);
     list.push({
-      geoKey: `senate-${sd}`,
-      label: `SD${sd}`,
+      geoKey: `senate-${n}`,
+      label: `SD${n}`,
       metrics: advantageFromBucket(b),
     });
   }
@@ -337,9 +339,10 @@ function geoAdvantages(
   for (const [ad, b] of [...agg.assembly.entries()].sort(
     (a, b) => Number(a[0]) - Number(b[0]),
   )) {
+    const n = Number(ad);
     list.push({
-      geoKey: `assembly-${ad}`,
-      label: `AD${ad}`,
+      geoKey: `assembly-${n}`,
+      label: `AD${n}`,
       metrics: advantageFromBucket(b),
     });
   }

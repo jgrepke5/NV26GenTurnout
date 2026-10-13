@@ -65,13 +65,13 @@ export async function discoverFile6(
   const html = await res.text();
   if (/incapsula|pardon our interruption|_Incapsula_Resource/i.test(html)) {
     throw new Error(
-      "VIVID feed blocked by bot protection (Incapsula). Place File 6 zip in data/raw/ and re-run sync.",
+      "VIVID feed blocked by bot protection (Incapsula). Place the VIVID extract zip in data/raw/ and re-run sync.",
     );
   }
   const files = parseFileLinks(html, feedUrl);
   if (files.length === 0) {
     throw new Error(
-      "No File 1–6 links found on VIVID page. Place File 6 zip in data/raw/ and re-run sync.",
+      "No VIVID extract links found on the VIVID page. Place the extract zip in data/raw/ and re-run sync.",
     );
   }
   return preferFile6(files);

@@ -191,6 +191,24 @@ function geoKeyFromCompsLabel(geo: string): string | null {
   return null;
 }
 
+/** Prefer sheet tab names — some AD tabs mislabel Geo (e.g. AD9 rows say "AD 5"). */
+function geoKeyFromCompsSheetName(sheetName: string): string | null {
+  const name = sheetName.trim();
+  if (/^statewide$/i.test(name)) return "statewide";
+  if (/^all\s*geos$/i.test(name)) return null;
+  const cd = name.match(/^CD\s*(\d+)$/i);
+  if (cd) return `congress-${Number(cd[1])}`;
+  const ad = name.match(/^AD\s*(\d+)$/i);
+  if (ad) return `assembly-${Number(ad[1])}`;
+  const sd = name.match(/^SD\s*(\d+)$/i);
+  if (sd) return `senate-${Number(sd[1])}`;
+  // County tabs use title case, e.g. "Carson City", "White Pine"
+  if (/^[A-Za-z][A-Za-z\s]+$/.test(name)) {
+    return `county-${name.toLowerCase().replace(/\s+/g, "-")}`;
+  }
+  return null;
+}
+
 function buildCumulativeForYear(
   rows: DayRow[],
   year: string,
@@ -270,6 +288,20 @@ async function importComps(series: HistoricSeriesFile["series"]) {
     a[0].localeCompare(b[0]),
   )) {
     setSeries(series, geoKey, geoRows, geoKey);
+  }
+
+  // Individual tabs fill gaps (and fix mislabeled Geo cells, e.g. AD9 → "AD 5").
+  for (const sheet of sheets) {
+    if (sheet.name === "All Geos") continue;
+    const geoKey = geoKeyFromCompsSheetName(sheet.name);
+    if (!geoKey) continue;
+    if (series[geoKey] && Object.keys(series[geoKey]["2024"] ?? {}).length > 0) {
+      continue;
+    }
+    const sheetRows = normalizedCompsRows(
+      parseSheet(COMPS_XLSX, sheet.file, strings),
+    );
+    setSeries(series, geoKey, sheetRows, `${sheet.name} (sheet)`);
   }
 }
 

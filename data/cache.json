@@ -5975,8 +5975,22 @@
         "rdAdvantage": -22,
         "rdAdvantagePct": -0.21568627450980393
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 4,
+        "democratVotes": 5,
+        "otherVotes": 7,
+        "allVotes": 16,
+        "rdAdvantage": -1,
+        "rdAdvantagePct": -0.0625
+      },
+      "historic2024": {
+        "republicanVotes": 9,
+        "democratVotes": 13,
+        "otherVotes": 4,
+        "allVotes": 26,
+        "rdAdvantage": -4,
+        "rdAdvantagePct": -0.15384615384615385
+      }
     },
     {
       "geoKey": "assembly-10",

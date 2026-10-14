@@ -6,7 +6,7 @@ Journalism-style reporting site for Nevada’s 2026 **general** election turnout
 
 **Cast ballot rule:** `BALLOT_STATUS = Accepted` and `VOTE_METHOD` filled. Party from `VOTER_REG_PARTY`.
 
-**R/D advantage:** Republican ballots minus Democrat ballots (`R+#` / `D+#`), plus advantage % of all ballots cast. Historic **2022** and **2024** sub-headers appear for statewide, all counties, all CDs, SD8/9/12, selected ADs (2, 5, 12, 21, 25, 29, 35, 37, 42), and Clark Commission District F.
+**R/D advantage:** Republican ballots minus Democrat ballots (`R+#` / `D+#`), plus advantage % of all ballots cast. Historic **2022** and **2024** sub-headers appear for statewide, all counties, the rural-county total (all except Clark/Washoe), all CDs, SD8/9/12, selected ADs (2, 5, 12, 21, 25, 29, 35, 37, 42), and Clark Commission District F.
 
 ## Run locally
 

@@ -5349,6 +5349,34 @@
       }
     },
     {
+      "geoKey": "county-rurals",
+      "label": "Rurals",
+      "metrics": {
+        "republicanVotes": 595,
+        "democratVotes": 384,
+        "otherVotes": 313,
+        "allVotes": 1292,
+        "rdAdvantage": 211,
+        "rdAdvantagePct": 0.163312693498452
+      },
+      "historic2022": {
+        "republicanVotes": 2708,
+        "democratVotes": 1759,
+        "otherVotes": 1448,
+        "allVotes": 5915,
+        "rdAdvantage": 949,
+        "rdAdvantagePct": 0.16043956043956045
+      },
+      "historic2024": {
+        "republicanVotes": 7202,
+        "democratVotes": 4054,
+        "otherVotes": 4148,
+        "allVotes": 15404,
+        "rdAdvantage": 3148,
+        "rdAdvantagePct": 0.20436250324591015
+      }
+    },
+    {
       "geoKey": "congress-1",
       "label": "CD1",
       "metrics": {

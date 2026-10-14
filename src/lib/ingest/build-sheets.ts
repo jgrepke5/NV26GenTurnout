@@ -317,6 +317,25 @@ function geoAdvantages(
     });
   }
 
+  // Aggregated rurals (every county except Clark + Washoe)
+  {
+    const ruralBucket: PartyMethodCounts = {
+      REP: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+      DEM: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+      OTHER: { early: 0, mail: 0, eday: 0, other: 0, registered: 0 },
+      registered: 0,
+    };
+    for (const [county, b] of agg.counties) {
+      if (county === "CLARK" || county === "WASHOE") continue;
+      addPartyBuckets(ruralBucket, b);
+    }
+    list.push({
+      geoKey: "county-rurals",
+      label: "Rurals",
+      metrics: advantageFromBucket(ruralBucket),
+    });
+  }
+
   for (const [cd, b] of [...agg.congress.entries()].sort(
     (a, b) => Number(a[0]) - Number(b[0]),
   )) {

@@ -19,7 +19,8 @@ export function mapGroupAdvantages(
 
 export function countyGroupKey(name: string): string | null {
   const n = name.trim().toLowerCase();
-  if (!n || n === "total" || n === "rurals") return null;
+  if (!n || n === "total") return null;
+  if (n === "rurals") return "county-rurals";
   return `county-${n.replace(/\s+/g, "-")}`;
 }
 

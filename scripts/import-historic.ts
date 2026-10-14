@@ -273,12 +273,65 @@ async function importComps(series: HistoricSeriesFile["series"]) {
   }
 }
 
+/** Sum every county except Clark/Washoe into county-rurals. */
+function buildRuralAggregate(series: HistoricSeriesFile["series"]) {
+  const ruralKeys = Object.keys(series).filter(
+    (k) =>
+      k.startsWith("county-") &&
+      k !== "county-clark" &&
+      k !== "county-washoe" &&
+      k !== "county-rurals",
+  );
+  if (ruralKeys.length === 0) {
+    console.warn("No rural counties available to aggregate");
+    return;
+  }
+
+  const out: Record<string, Record<string, AdvantageMetrics>> = {
+    "2022": {},
+    "2024": {},
+  };
+
+  for (const year of ["2022", "2024"] as const) {
+    const daySet = new Set<string>();
+    for (const key of ruralKeys) {
+      for (const day of Object.keys(series[key]?.[year] ?? {})) {
+        daySet.add(day);
+      }
+    }
+    const days = [...daySet]
+      .map(Number)
+      .filter((n) => Number.isFinite(n))
+      .sort((a, b) => a - b);
+
+    for (const day of days) {
+      let r = 0;
+      let d = 0;
+      let o = 0;
+      for (const key of ruralKeys) {
+        const m = series[key]?.[year]?.[String(day)];
+        if (!m) continue;
+        r += m.republicanVotes;
+        d += m.democratVotes;
+        o += m.otherVotes;
+      }
+      out[year][String(day)] = metricsFromCounts(r, d, o);
+    }
+  }
+
+  series["county-rurals"] = out;
+  console.log(
+    `  · rural aggregate → county-rurals: 2022 days=${Object.keys(out["2022"]).length}, 2024 days=${Object.keys(out["2024"]).length} (from ${ruralKeys.length} counties)`,
+  );
+}
+
 async function main() {
   const series: HistoricSeriesFile["series"] = {};
 
   // Legacy first (senate + Clark F); comps overwrite statewide with the newer book.
   await importLegacy(series);
   await importComps(series);
+  buildRuralAggregate(series);
 
   const out: HistoricSeriesFile = {
     generatedAt: new Date().toISOString(),

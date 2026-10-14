@@ -311,7 +311,7 @@ function geoAdvantages(
 
   for (const [county, b] of [...agg.counties.entries()].sort()) {
     list.push({
-      geoKey: `county-${county.toLowerCase()}`,
+      geoKey: `county-${county.toLowerCase().replace(/\s+/g, "-")}`,
       label: titleCaseCounty(county),
       metrics: advantageFromBucket(b),
     });

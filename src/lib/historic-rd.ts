@@ -52,22 +52,11 @@ export function attachHistoric(
   series: HistoricSeriesFile,
   evDayIndex: number,
 ): GeoAdvantage {
-  const showHistoric = [
-    "statewide",
-    "senate-8",
-    "senate-9",
-    "senate-12",
-    "commission-clark-f",
-  ].includes(geo.geoKey);
-
+  // Show 2022/2024 whenever the historic series has this geography.
   return {
     ...geo,
-    historic2022: showHistoric
-      ? lookupHistoric(series, geo.geoKey, "2022", evDayIndex)
-      : null,
-    historic2024: showHistoric
-      ? lookupHistoric(series, geo.geoKey, "2024", evDayIndex)
-      : null,
+    historic2022: lookupHistoric(series, geo.geoKey, "2022", evDayIndex),
+    historic2024: lookupHistoric(series, geo.geoKey, "2024", evDayIndex),
   };
 }
 

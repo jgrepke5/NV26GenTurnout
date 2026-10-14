@@ -4873,7 +4873,7 @@
       }
     },
     {
-      "geoKey": "county-carson city",
+      "geoKey": "county-carson-city",
       "label": "Carson City",
       "metrics": {
         "republicanVotes": 0,
@@ -4883,8 +4883,22 @@
         "rdAdvantage": 0,
         "rdAdvantagePct": null
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 22,
+        "democratVotes": 30,
+        "otherVotes": 21,
+        "allVotes": 73,
+        "rdAdvantage": -8,
+        "rdAdvantagePct": -0.1095890410958904
+      },
+      "historic2024": {
+        "republicanVotes": 116,
+        "democratVotes": 141,
+        "otherVotes": 83,
+        "allVotes": 340,
+        "rdAdvantage": -25,
+        "rdAdvantagePct": -0.07352941176470588
+      }
     },
     {
       "geoKey": "county-churchill",
@@ -4897,8 +4911,22 @@
         "rdAdvantage": -6,
         "rdAdvantagePct": -0.375
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 191,
+        "democratVotes": 139,
+        "otherVotes": 126,
+        "allVotes": 456,
+        "rdAdvantage": 52,
+        "rdAdvantagePct": 0.11403508771929824
+      },
+      "historic2024": {
+        "republicanVotes": 514,
+        "democratVotes": 314,
+        "otherVotes": 391,
+        "allVotes": 1219,
+        "rdAdvantage": 200,
+        "rdAdvantagePct": 0.16406890894175555
+      }
     },
     {
       "geoKey": "county-clark",
@@ -4911,8 +4939,22 @@
         "rdAdvantage": -682,
         "rdAdvantagePct": -0.20017610801291458
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 86,
+        "democratVotes": 189,
+        "otherVotes": 155,
+        "allVotes": 430,
+        "rdAdvantage": -103,
+        "rdAdvantagePct": -0.23953488372093024
+      },
+      "historic2024": {
+        "republicanVotes": 220,
+        "democratVotes": 346,
+        "otherVotes": 295,
+        "allVotes": 861,
+        "rdAdvantage": -126,
+        "rdAdvantagePct": -0.14634146341463414
+      }
     },
     {
       "geoKey": "county-douglas",
@@ -4925,8 +4967,22 @@
         "rdAdvantage": 89,
         "rdAdvantagePct": 0.173828125
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 740,
+        "democratVotes": 453,
+        "otherVotes": 317,
+        "allVotes": 1510,
+        "rdAdvantage": 287,
+        "rdAdvantagePct": 0.1900662251655629
+      },
+      "historic2024": {
+        "republicanVotes": 1408,
+        "democratVotes": 818,
+        "otherVotes": 650,
+        "allVotes": 2876,
+        "rdAdvantage": 590,
+        "rdAdvantagePct": 0.2051460361613352
+      }
     },
     {
       "geoKey": "county-elko",
@@ -4939,8 +4995,22 @@
         "rdAdvantage": 59,
         "rdAdvantagePct": 0.18153846153846154
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 149,
+        "democratVotes": 63,
+        "otherVotes": 71,
+        "allVotes": 283,
+        "rdAdvantage": 86,
+        "rdAdvantagePct": 0.303886925795053
+      },
+      "historic2024": {
+        "republicanVotes": 1360,
+        "democratVotes": 500,
+        "otherVotes": 609,
+        "allVotes": 2469,
+        "rdAdvantage": 860,
+        "rdAdvantagePct": 0.34831915755366544
+      }
     },
     {
       "geoKey": "county-esmeralda",
@@ -4953,8 +5023,22 @@
         "rdAdvantage": 0,
         "rdAdvantagePct": null
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 0,
+        "democratVotes": 0,
+        "otherVotes": 0,
+        "allVotes": 0,
+        "rdAdvantage": 0,
+        "rdAdvantagePct": null
+      },
+      "historic2024": {
+        "republicanVotes": 51,
+        "democratVotes": 9,
+        "otherVotes": 20,
+        "allVotes": 80,
+        "rdAdvantage": 42,
+        "rdAdvantagePct": 0.525
+      }
     },
     {
       "geoKey": "county-eureka",
@@ -4967,8 +5051,22 @@
         "rdAdvantage": 1,
         "rdAdvantagePct": 1
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 11,
+        "democratVotes": 4,
+        "otherVotes": 2,
+        "allVotes": 17,
+        "rdAdvantage": 7,
+        "rdAdvantagePct": 0.4117647058823529
+      },
+      "historic2024": {
+        "republicanVotes": 86,
+        "democratVotes": 17,
+        "otherVotes": 27,
+        "allVotes": 130,
+        "rdAdvantage": 69,
+        "rdAdvantagePct": 0.5307692307692308
+      }
     },
     {
       "geoKey": "county-humboldt",
@@ -4981,8 +5079,22 @@
         "rdAdvantage": 46,
         "rdAdvantagePct": 0.4144144144144144
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 6,
+        "democratVotes": 4,
+        "otherVotes": 6,
+        "allVotes": 16,
+        "rdAdvantage": 2,
+        "rdAdvantagePct": 0.125
+      },
+      "historic2024": {
+        "republicanVotes": 321,
+        "democratVotes": 142,
+        "otherVotes": 156,
+        "allVotes": 619,
+        "rdAdvantage": 179,
+        "rdAdvantagePct": 0.28917609046849757
+      }
     },
     {
       "geoKey": "county-lander",
@@ -4995,8 +5107,22 @@
         "rdAdvantage": 7,
         "rdAdvantagePct": 0.35
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 39,
+        "democratVotes": 17,
+        "otherVotes": 11,
+        "allVotes": 67,
+        "rdAdvantage": 22,
+        "rdAdvantagePct": 0.3283582089552239
+      },
+      "historic2024": {
+        "republicanVotes": 46,
+        "democratVotes": 24,
+        "otherVotes": 18,
+        "allVotes": 88,
+        "rdAdvantage": 22,
+        "rdAdvantagePct": 0.25
+      }
     },
     {
       "geoKey": "county-lincoln",
@@ -5009,8 +5135,22 @@
         "rdAdvantage": 6,
         "rdAdvantagePct": 0.2222222222222222
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 53,
+        "democratVotes": 13,
+        "otherVotes": 18,
+        "allVotes": 84,
+        "rdAdvantage": 40,
+        "rdAdvantagePct": 0.47619047619047616
+      },
+      "historic2024": {
+        "republicanVotes": 166,
+        "democratVotes": 44,
+        "otherVotes": 74,
+        "allVotes": 284,
+        "rdAdvantage": 122,
+        "rdAdvantagePct": 0.4295774647887324
+      }
     },
     {
       "geoKey": "county-lyon",
@@ -5023,8 +5163,22 @@
         "rdAdvantage": 5,
         "rdAdvantagePct": 0.07352941176470588
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 661,
+        "democratVotes": 435,
+        "otherVotes": 362,
+        "allVotes": 1458,
+        "rdAdvantage": 226,
+        "rdAdvantagePct": 0.1550068587105624
+      },
+      "historic2024": {
+        "republicanVotes": 328,
+        "democratVotes": 220,
+        "otherVotes": 209,
+        "allVotes": 757,
+        "rdAdvantage": 108,
+        "rdAdvantagePct": 0.142668428005284
+      }
     },
     {
       "geoKey": "county-mineral",
@@ -5037,8 +5191,22 @@
         "rdAdvantage": 5,
         "rdAdvantagePct": 0.06329113924050633
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 2,
+        "democratVotes": 0,
+        "otherVotes": 0,
+        "allVotes": 2,
+        "rdAdvantage": 2,
+        "rdAdvantagePct": 1
+      },
+      "historic2024": {
+        "republicanVotes": 114,
+        "democratVotes": 129,
+        "otherVotes": 100,
+        "allVotes": 343,
+        "rdAdvantage": -15,
+        "rdAdvantagePct": -0.043731778425655975
+      }
     },
     {
       "geoKey": "county-nye",
@@ -5051,8 +5219,22 @@
         "rdAdvantage": 1,
         "rdAdvantagePct": 0.06666666666666667
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 652,
+        "democratVotes": 507,
+        "otherVotes": 446,
+        "allVotes": 1605,
+        "rdAdvantage": 145,
+        "rdAdvantagePct": 0.09034267912772585
+      },
+      "historic2024": {
+        "republicanVotes": 2119,
+        "democratVotes": 1399,
+        "otherVotes": 1517,
+        "allVotes": 5035,
+        "rdAdvantage": 720,
+        "rdAdvantagePct": 0.14299900695134063
+      }
     },
     {
       "geoKey": "county-pershing",
@@ -5065,8 +5247,22 @@
         "rdAdvantage": 9,
         "rdAdvantagePct": 0.12162162162162163
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 4,
+        "democratVotes": 0,
+        "otherVotes": 2,
+        "allVotes": 6,
+        "rdAdvantage": 4,
+        "rdAdvantagePct": 0.6666666666666666
+      },
+      "historic2024": {
+        "republicanVotes": 161,
+        "democratVotes": 96,
+        "otherVotes": 91,
+        "allVotes": 348,
+        "rdAdvantage": 65,
+        "rdAdvantagePct": 0.1867816091954023
+      }
     },
     {
       "geoKey": "county-storey",
@@ -5079,8 +5275,22 @@
         "rdAdvantage": -15,
         "rdAdvantagePct": -0.5769230769230769
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 56,
+        "democratVotes": 40,
+        "otherVotes": 24,
+        "allVotes": 120,
+        "rdAdvantage": 16,
+        "rdAdvantagePct": 0.13333333333333333
+      },
+      "historic2024": {
+        "republicanVotes": 126,
+        "democratVotes": 107,
+        "otherVotes": 104,
+        "allVotes": 337,
+        "rdAdvantage": 19,
+        "rdAdvantagePct": 0.05637982195845697
+      }
     },
     {
       "geoKey": "county-washoe",
@@ -5093,11 +5303,25 @@
         "rdAdvantage": -456,
         "rdAdvantagePct": -0.27754108338405353
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 465,
+        "democratVotes": 730,
+        "otherVotes": 399,
+        "allVotes": 1594,
+        "rdAdvantage": -265,
+        "rdAdvantagePct": -0.16624843161856964
+      },
+      "historic2024": {
+        "republicanVotes": 7081,
+        "democratVotes": 10229,
+        "otherVotes": 6120,
+        "allVotes": 23430,
+        "rdAdvantage": -3148,
+        "rdAdvantagePct": -0.1343576611182245
+      }
     },
     {
-      "geoKey": "county-white pine",
+      "geoKey": "county-white-pine",
       "label": "White Pine",
       "metrics": {
         "republicanVotes": 10,
@@ -5107,8 +5331,22 @@
         "rdAdvantage": 4,
         "rdAdvantagePct": 0.2222222222222222
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 122,
+        "democratVotes": 54,
+        "otherVotes": 42,
+        "allVotes": 218,
+        "rdAdvantage": 68,
+        "rdAdvantagePct": 0.3119266055045872
+      },
+      "historic2024": {
+        "republicanVotes": 286,
+        "democratVotes": 94,
+        "otherVotes": 99,
+        "allVotes": 479,
+        "rdAdvantage": 192,
+        "rdAdvantagePct": 0.40083507306889354
+      }
     },
     {
       "geoKey": "congress-1",
@@ -5121,8 +5359,22 @@
         "rdAdvantage": -206,
         "rdAdvantagePct": -0.16885245901639345
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 26,
+        "democratVotes": 73,
+        "otherVotes": 58,
+        "allVotes": 157,
+        "rdAdvantage": -47,
+        "rdAdvantagePct": -0.29936305732484075
+      },
+      "historic2024": {
+        "republicanVotes": 64,
+        "democratVotes": 113,
+        "otherVotes": 99,
+        "allVotes": 276,
+        "rdAdvantage": -49,
+        "rdAdvantagePct": -0.17753623188405798
+      }
     },
     {
       "geoKey": "congress-2",
@@ -5135,8 +5387,22 @@
         "rdAdvantage": -257,
         "rdAdvantagePct": -0.09132906894100924
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 2465,
+        "democratVotes": 1966,
+        "otherVotes": 1382,
+        "allVotes": 5813,
+        "rdAdvantage": 499,
+        "rdAdvantagePct": 0.08584207810080853
+      },
+      "historic2024": {
+        "republicanVotes": 11828,
+        "democratVotes": 12698,
+        "otherVotes": 8558,
+        "allVotes": 33084,
+        "rdAdvantage": -870,
+        "rdAdvantagePct": -0.02629669931084512
+      }
     },
     {
       "geoKey": "congress-3",
@@ -5149,8 +5415,22 @@
         "rdAdvantage": -272,
         "rdAdvantagePct": -0.2390158172231986
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 38,
+        "democratVotes": 63,
+        "otherVotes": 50,
+        "allVotes": 151,
+        "rdAdvantage": -25,
+        "rdAdvantagePct": -0.16556291390728478
+      },
+      "historic2024": {
+        "republicanVotes": 93,
+        "democratVotes": 136,
+        "otherVotes": 109,
+        "allVotes": 338,
+        "rdAdvantage": -43,
+        "rdAdvantagePct": -0.12721893491124261
+      }
     },
     {
       "geoKey": "congress-4",
@@ -5163,8 +5443,22 @@
         "rdAdvantage": -192,
         "rdAdvantagePct": -0.1641025641025641
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 730,
+        "democratVotes": 576,
+        "otherVotes": 512,
+        "allVotes": 1818,
+        "rdAdvantage": 154,
+        "rdAdvantagePct": 0.0847084708470847
+      },
+      "historic2024": {
+        "republicanVotes": 2518,
+        "democratVotes": 1682,
+        "otherVotes": 1798,
+        "allVotes": 5998,
+        "rdAdvantage": 836,
+        "rdAdvantagePct": 0.1393797932644215
+      }
     },
     {
       "geoKey": "senate-1",
@@ -5527,8 +5821,22 @@
         "rdAdvantage": -54,
         "rdAdvantagePct": -0.3068181818181818
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 7,
+        "democratVotes": 9,
+        "otherVotes": 5,
+        "allVotes": 21,
+        "rdAdvantage": -2,
+        "rdAdvantagePct": -0.09523809523809523
+      },
+      "historic2024": {
+        "republicanVotes": 18,
+        "democratVotes": 26,
+        "otherVotes": 18,
+        "allVotes": 62,
+        "rdAdvantage": -8,
+        "rdAdvantagePct": -0.12903225806451613
+      }
     },
     {
       "geoKey": "assembly-3",
@@ -5569,8 +5877,22 @@
         "rdAdvantage": -27,
         "rdAdvantagePct": -0.2967032967032967
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 3,
+        "democratVotes": 6,
+        "otherVotes": 4,
+        "allVotes": 13,
+        "rdAdvantage": -3,
+        "rdAdvantagePct": -0.23076923076923078
+      },
+      "historic2024": {
+        "republicanVotes": 10,
+        "democratVotes": 19,
+        "otherVotes": 14,
+        "allVotes": 43,
+        "rdAdvantage": -9,
+        "rdAdvantagePct": -0.20930232558139536
+      }
     },
     {
       "geoKey": "assembly-6",
@@ -5667,8 +5989,22 @@
         "rdAdvantage": -15,
         "rdAdvantagePct": -0.14018691588785046
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 0,
+        "democratVotes": 4,
+        "otherVotes": 2,
+        "allVotes": 6,
+        "rdAdvantage": -4,
+        "rdAdvantagePct": -0.6666666666666666
+      },
+      "historic2024": {
+        "republicanVotes": 7,
+        "democratVotes": 4,
+        "otherVotes": 6,
+        "allVotes": 17,
+        "rdAdvantage": 3,
+        "rdAdvantagePct": 0.17647058823529413
+      }
     },
     {
       "geoKey": "assembly-13",
@@ -5793,8 +6129,22 @@
         "rdAdvantage": -28,
         "rdAdvantagePct": -0.23529411764705882
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 5,
+        "democratVotes": 8,
+        "otherVotes": 2,
+        "allVotes": 15,
+        "rdAdvantage": -3,
+        "rdAdvantagePct": -0.2
+      },
+      "historic2024": {
+        "republicanVotes": 7,
+        "democratVotes": 9,
+        "otherVotes": 12,
+        "allVotes": 28,
+        "rdAdvantage": -2,
+        "rdAdvantagePct": -0.07142857142857142
+      }
     },
     {
       "geoKey": "assembly-22",
@@ -5849,8 +6199,22 @@
         "rdAdvantage": -130,
         "rdAdvantagePct": -0.3485254691689008
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 76,
+        "democratVotes": 158,
+        "otherVotes": 75,
+        "allVotes": 309,
+        "rdAdvantage": -82,
+        "rdAdvantagePct": -0.26537216828478966
+      },
+      "historic2024": {
+        "republicanVotes": 1033,
+        "democratVotes": 1816,
+        "otherVotes": 941,
+        "allVotes": 3790,
+        "rdAdvantage": -783,
+        "rdAdvantagePct": -0.20659630606860158
+      }
     },
     {
       "geoKey": "assembly-26",
@@ -5905,8 +6269,22 @@
         "rdAdvantage": -32,
         "rdAdvantagePct": -0.2711864406779661
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 4,
+        "democratVotes": 8,
+        "otherVotes": 3,
+        "allVotes": 15,
+        "rdAdvantage": -4,
+        "rdAdvantagePct": -0.26666666666666666
+      },
+      "historic2024": {
+        "republicanVotes": 4,
+        "democratVotes": 16,
+        "otherVotes": 9,
+        "allVotes": 29,
+        "rdAdvantage": -12,
+        "rdAdvantagePct": -0.41379310344827586
+      }
     },
     {
       "geoKey": "assembly-30",
@@ -5989,8 +6367,22 @@
         "rdAdvantage": -16,
         "rdAdvantagePct": -0.16842105263157894
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 4,
+        "democratVotes": 7,
+        "otherVotes": 4,
+        "allVotes": 15,
+        "rdAdvantage": -3,
+        "rdAdvantagePct": -0.2
+      },
+      "historic2024": {
+        "republicanVotes": 12,
+        "democratVotes": 13,
+        "otherVotes": 11,
+        "allVotes": 36,
+        "rdAdvantage": -1,
+        "rdAdvantagePct": -0.027777777777777776
+      }
     },
     {
       "geoKey": "assembly-36",
@@ -6017,8 +6409,22 @@
         "rdAdvantage": -36,
         "rdAdvantagePct": -0.23225806451612904
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 3,
+        "democratVotes": 5,
+        "otherVotes": 7,
+        "allVotes": 15,
+        "rdAdvantage": -2,
+        "rdAdvantagePct": -0.13333333333333333
+      },
+      "historic2024": {
+        "republicanVotes": 11,
+        "democratVotes": 10,
+        "otherVotes": 14,
+        "allVotes": 35,
+        "rdAdvantage": 1,
+        "rdAdvantagePct": 0.02857142857142857
+      }
     },
     {
       "geoKey": "assembly-38",
@@ -6087,8 +6493,22 @@
         "rdAdvantage": -34,
         "rdAdvantagePct": -0.2956521739130435
       },
-      "historic2022": null,
-      "historic2024": null
+      "historic2022": {
+        "republicanVotes": 1,
+        "democratVotes": 7,
+        "otherVotes": 4,
+        "allVotes": 12,
+        "rdAdvantage": -6,
+        "rdAdvantagePct": -0.5
+      },
+      "historic2024": {
+        "republicanVotes": 6,
+        "democratVotes": 17,
+        "otherVotes": 9,
+        "allVotes": 32,
+        "rdAdvantage": -11,
+        "rdAdvantagePct": -0.34375
+      }
     },
     {
       "geoKey": "commission-carson city-3",

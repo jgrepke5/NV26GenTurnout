@@ -17,15 +17,6 @@ export type GeoAdvantage = {
   historic2024: AdvantageMetrics | null;
 };
 
-/** Geos that show 2022/2024 historic sub-headers */
-export const HISTORIC_GEO_KEYS = new Set([
-  "statewide",
-  "senate-8",
-  "senate-9",
-  "senate-12",
-  "commission-clark-f",
-]);
-
 export function emptyMetrics(): AdvantageMetrics {
   return {
     republicanVotes: 0,

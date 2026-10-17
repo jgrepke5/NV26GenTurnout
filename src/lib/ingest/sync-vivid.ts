@@ -84,17 +84,28 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
   );
 
   const asOfDate = todayPacificYmd();
-  const evDayIndex = evDayIndexForDate(
-    asOfDate,
-    SITE.earlyVoteStart,
-    SITE.dayBeforeEarlyVote,
-  );
+  const forceDay = process.env.FORCE_EV_DAY_INDEX;
+  const evDayIndex =
+    forceDay !== undefined && forceDay !== ""
+      ? Number(forceDay)
+      : evDayIndexForDate(
+          asOfDate,
+          SITE.earlyVoteStart,
+          SITE.dayBeforeEarlyVote,
+        );
+  if (!Number.isFinite(evDayIndex) || evDayIndex < 0) {
+    throw new Error(`Invalid FORCE_EV_DAY_INDEX: ${forceDay}`);
+  }
+  if (forceDay !== undefined && forceDay !== "") {
+    console.log(`  Forced evDayIndex=${evDayIndex} (FORCE_EV_DAY_INDEX)`);
+  }
 
   const snapshot = await snapshotFromAggregate(agg, {
     sourceUrl,
     sourceHash,
     asOfDate,
     evDayIndex,
+    fetchedAt: process.env.FETCHED_AT || undefined,
   });
 
   await mkdir(HISTORY_DIR, { recursive: true });

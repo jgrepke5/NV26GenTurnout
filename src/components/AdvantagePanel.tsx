@@ -78,10 +78,3 @@ export function AdvantagePanel({
     </div>
   );
 }
-
-export function findAdvantage(
-  advantages: GeoAdvantage[] | undefined,
-  geoKey: string,
-): GeoAdvantage | undefined {
-  return advantages?.find((a) => a.geoKey === geoKey);
-}

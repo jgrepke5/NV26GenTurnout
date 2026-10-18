@@ -1,7 +1,7 @@
-import type { GeoAdvantage } from "@/lib/advantage";
+import { findAdvantage, type GeoAdvantage } from "@/lib/advantage";
 import { buildStatewideBlocks } from "@/lib/statewide";
 import type { SheetTable } from "@/lib/types";
-import { AdvantagePanel, findAdvantage } from "./AdvantagePanel";
+import { AdvantagePanel } from "./AdvantagePanel";
 import { DataTable } from "./DataTable";
 import { TurnoutPieChart } from "./TurnoutPieChart";
 

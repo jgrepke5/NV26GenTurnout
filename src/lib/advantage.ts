@@ -17,6 +17,13 @@ export type GeoAdvantage = {
   historic2024: AdvantageMetrics | null;
 };
 
+export function findAdvantage(
+  advantages: GeoAdvantage[] | undefined,
+  geoKey: string,
+): GeoAdvantage | undefined {
+  return advantages?.find((a) => a.geoKey === geoKey);
+}
+
 export function emptyMetrics(): AdvantageMetrics {
   return {
     republicanVotes: 0,

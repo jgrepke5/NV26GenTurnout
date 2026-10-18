@@ -38,6 +38,23 @@ function methodKey(raw: string): MethodKey {
   return "other";
 }
 
+/**
+ * Count a File 6 row as a completed ballot.
+ * Mail (and future election-day) use BALLOT_STATUS=Accepted.
+ * In-person early vote is recorded as VOTE_METHOD=Early Voting with
+ * BALLOT_STATUS="Surrendered – Voted In Person" (mail ballot surrendered
+ * at the EV site) — those were previously excluded by an Accepted-only filter.
+ */
+function isCountedBallot(status: string, voteMethod: string): boolean {
+  if (!voteMethod.trim()) return false;
+  const s = status.trim().toLowerCase();
+  const m = voteMethod.trim().toLowerCase();
+  if (m.includes("early")) {
+    return s === "accepted" || s.startsWith("surrendered");
+  }
+  return s === "accepted";
+}
+
 export type AggregateResult = {
   extractAt: string | null;
   statewide: PartyMethodCounts;
@@ -145,7 +162,7 @@ export async function aggregateVividCsv(
 
     const status = get("BALLOT_STATUS");
     const voteMethod = get("VOTE_METHOD");
-    if (!voteMethod || status.toLowerCase() !== "accepted") continue;
+    if (!isCountedBallot(status, voteMethod)) continue;
 
     result.acceptedVotes += 1;
     const mk = methodKey(voteMethod);

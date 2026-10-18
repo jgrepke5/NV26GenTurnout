@@ -84,20 +84,41 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
   );
 
   const asOfDate = todayPacificYmd();
+  const fetchedAt = process.env.FETCHED_AT || new Date().toISOString();
+  const calendarDay = evDayIndexForDate(
+    asOfDate,
+    SITE.earlyVoteStart,
+    SITE.dayBeforeEarlyVote,
+  );
+
+  // Morning (9:30 PT) extracts are mostly through end of yesterday, while
+  // historic RowNo N is cumulative through end of EV day N. Align historic
+  // one day behind for morning banners; afternoon (4:00 PT) uses calendar day.
+  const pacificHour = Number(
+    new Date(fetchedAt).toLocaleString("en-US", {
+      timeZone: "America/Los_Angeles",
+      hour: "numeric",
+      hour12: false,
+    }),
+  );
+  const morningLag = pacificHour < 12;
+
   const forceDay = process.env.FORCE_EV_DAY_INDEX;
-  const evDayIndex =
-    forceDay !== undefined && forceDay !== ""
-      ? Number(forceDay)
-      : evDayIndexForDate(
-          asOfDate,
-          SITE.earlyVoteStart,
-          SITE.dayBeforeEarlyVote,
-        );
+  let evDayIndex: number;
+  if (forceDay !== undefined && forceDay !== "") {
+    evDayIndex = Number(forceDay);
+    console.log(`  Forced evDayIndex=${evDayIndex} (FORCE_EV_DAY_INDEX)`);
+  } else if (morningLag) {
+    evDayIndex = Math.max(0, calendarDay - 1);
+    console.log(
+      `  Morning update: historic day ${evDayIndex} (calendar day ${calendarDay} − 1)`,
+    );
+  } else {
+    evDayIndex = calendarDay;
+    console.log(`  Afternoon update: historic day ${evDayIndex}`);
+  }
   if (!Number.isFinite(evDayIndex) || evDayIndex < 0) {
     throw new Error(`Invalid FORCE_EV_DAY_INDEX: ${forceDay}`);
-  }
-  if (forceDay !== undefined && forceDay !== "") {
-    console.log(`  Forced evDayIndex=${evDayIndex} (FORCE_EV_DAY_INDEX)`);
   }
 
   const snapshot = await snapshotFromAggregate(agg, {
@@ -105,7 +126,7 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
     sourceHash,
     asOfDate,
     evDayIndex,
-    fetchedAt: process.env.FETCHED_AT || undefined,
+    fetchedAt,
   });
 
   await mkdir(HISTORY_DIR, { recursive: true });

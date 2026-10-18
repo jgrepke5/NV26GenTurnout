@@ -4,7 +4,7 @@
   "sourceUrl": "https://www.nvsos.gov/elections/election-information/vivid-project",
   "sourceHash": "845bb74296b12ade-635741829",
   "asOfDate": "2026-10-18",
-  "evDayIndex": 2,
+  "evDayIndex": 1,
   "sheets": [
     {
       "title": "Statewide",
@@ -4856,20 +4856,20 @@
         "rdAdvantagePct": -0.05233827415833621
       },
       "historic2022": {
-        "republicanVotes": 25857,
-        "democratVotes": 31057,
-        "otherVotes": 23548,
-        "allVotes": 80462,
-        "rdAdvantage": -5200,
-        "rdAdvantagePct": -0.0646267803435162
+        "republicanVotes": 12093,
+        "democratVotes": 9659,
+        "otherVotes": 9828,
+        "allVotes": 31580,
+        "rdAdvantage": 2434,
+        "rdAdvantagePct": 0.07707409753008233
       },
       "historic2024": {
-        "republicanVotes": 75994,
-        "democratVotes": 78475,
-        "otherVotes": 50692,
-        "allVotes": 205161,
-        "rdAdvantage": -2481,
-        "rdAdvantagePct": -0.012092941640955153
+        "republicanVotes": 55963,
+        "democratVotes": 64796,
+        "otherVotes": 41841,
+        "allVotes": 162600,
+        "rdAdvantage": -8833,
+        "rdAdvantagePct": -0.05432349323493235
       }
     },
     {
@@ -4884,20 +4884,20 @@
         "rdAdvantagePct": 0.1663778162911612
       },
       "historic2022": {
-        "republicanVotes": 132,
-        "democratVotes": 69,
-        "otherVotes": 46,
-        "allVotes": 247,
-        "rdAdvantage": 63,
-        "rdAdvantagePct": 0.2550607287449393
+        "republicanVotes": 130,
+        "democratVotes": 65,
+        "otherVotes": 41,
+        "allVotes": 236,
+        "rdAdvantage": 65,
+        "rdAdvantagePct": 0.2754237288135593
       },
       "historic2024": {
-        "republicanVotes": 790,
-        "democratVotes": 588,
-        "otherVotes": 375,
-        "allVotes": 1753,
-        "rdAdvantage": 202,
-        "rdAdvantagePct": 0.11523103251568739
+        "republicanVotes": 390,
+        "democratVotes": 467,
+        "otherVotes": 285,
+        "allVotes": 1142,
+        "rdAdvantage": -77,
+        "rdAdvantagePct": -0.06742556917688267
       }
     },
     {
@@ -4912,20 +4912,20 @@
         "rdAdvantagePct": 0.3489827856025039
       },
       "historic2022": {
-        "republicanVotes": 291,
+        "republicanVotes": 289,
         "democratVotes": 155,
         "otherVotes": 141,
-        "allVotes": 587,
-        "rdAdvantage": 136,
-        "rdAdvantagePct": 0.23168654173764908
+        "allVotes": 585,
+        "rdAdvantage": 134,
+        "rdAdvantagePct": 0.22905982905982905
       },
       "historic2024": {
-        "republicanVotes": 1024,
-        "democratVotes": 375,
-        "otherVotes": 481,
-        "allVotes": 1880,
-        "rdAdvantage": 649,
-        "rdAdvantagePct": 0.3452127659574468
+        "republicanVotes": 524,
+        "democratVotes": 315,
+        "otherVotes": 396,
+        "allVotes": 1235,
+        "rdAdvantage": 209,
+        "rdAdvantagePct": 0.16923076923076924
       }
     },
     {
@@ -4940,20 +4940,20 @@
         "rdAdvantagePct": -0.10856150844806545
       },
       "historic2022": {
-        "republicanVotes": 16716,
-        "democratVotes": 22940,
-        "otherVotes": 11660,
-        "allVotes": 51316,
-        "rdAdvantage": -6224,
-        "rdAdvantagePct": -0.1212877075376101
+        "republicanVotes": 4820,
+        "democratVotes": 4009,
+        "otherVotes": 1976,
+        "allVotes": 10805,
+        "rdAdvantage": 811,
+        "rdAdvantagePct": 0.07505784359093012
       },
       "historic2024": {
-        "republicanVotes": 43905,
-        "democratVotes": 52011,
-        "otherVotes": 32267,
-        "allVotes": 128183,
-        "rdAdvantage": -8106,
-        "rdAdvantagePct": -0.06323771482957959
+        "republicanVotes": 34492,
+        "democratVotes": 43342,
+        "otherVotes": 26942,
+        "allVotes": 104776,
+        "rdAdvantage": -8850,
+        "rdAdvantagePct": -0.08446590822325724
       }
     },
     {
@@ -4968,20 +4968,20 @@
         "rdAdvantagePct": 0.2924812030075188
       },
       "historic2022": {
-        "republicanVotes": 917,
-        "democratVotes": 495,
+        "republicanVotes": 916,
+        "democratVotes": 494,
         "otherVotes": 343,
-        "allVotes": 1755,
+        "allVotes": 1753,
         "rdAdvantage": 422,
-        "rdAdvantagePct": 0.24045584045584045
+        "rdAdvantagePct": 0.24073017683970335
       },
       "historic2024": {
-        "republicanVotes": 2440,
-        "democratVotes": 1059,
-        "otherVotes": 833,
-        "allVotes": 4332,
-        "rdAdvantage": 1381,
-        "rdAdvantagePct": 0.3187903970452447
+        "republicanVotes": 1965,
+        "democratVotes": 987,
+        "otherVotes": 771,
+        "allVotes": 3723,
+        "rdAdvantage": 978,
+        "rdAdvantagePct": 0.2626913779210314
       }
     },
     {
@@ -4996,20 +4996,20 @@
         "rdAdvantagePct": 0.3595430107526882
       },
       "historic2022": {
-        "republicanVotes": 305,
-        "democratVotes": 75,
+        "republicanVotes": 304,
+        "democratVotes": 74,
         "otherVotes": 84,
-        "allVotes": 464,
+        "allVotes": 462,
         "rdAdvantage": 230,
-        "rdAdvantagePct": 0.4956896551724138
+        "rdAdvantagePct": 0.49783549783549785
       },
       "historic2024": {
-        "republicanVotes": 1781,
-        "democratVotes": 530,
-        "otherVotes": 686,
-        "allVotes": 2997,
-        "rdAdvantage": 1251,
-        "rdAdvantagePct": 0.4174174174174174
+        "republicanVotes": 1398,
+        "democratVotes": 505,
+        "otherVotes": 618,
+        "allVotes": 2521,
+        "rdAdvantage": 893,
+        "rdAdvantagePct": 0.3542245140817136
       }
     },
     {
@@ -5032,12 +5032,12 @@
         "rdAdvantagePct": 1
       },
       "historic2024": {
-        "republicanVotes": 56,
-        "democratVotes": 12,
-        "otherVotes": 24,
-        "allVotes": 92,
-        "rdAdvantage": 44,
-        "rdAdvantagePct": 0.4782608695652174
+        "republicanVotes": 51,
+        "democratVotes": 10,
+        "otherVotes": 20,
+        "allVotes": 81,
+        "rdAdvantage": 41,
+        "rdAdvantagePct": 0.5061728395061729
       }
     },
     {
@@ -5060,12 +5060,12 @@
         "rdAdvantagePct": 0.47368421052631576
       },
       "historic2024": {
-        "republicanVotes": 104,
+        "republicanVotes": 88,
         "democratVotes": 17,
-        "otherVotes": 32,
-        "allVotes": 153,
-        "rdAdvantage": 87,
-        "rdAdvantagePct": 0.5686274509803921
+        "otherVotes": 27,
+        "allVotes": 132,
+        "rdAdvantage": 71,
+        "rdAdvantagePct": 0.5378787878787878
       }
     },
     {
@@ -5080,20 +5080,20 @@
         "rdAdvantagePct": 0.40925925925925927
       },
       "historic2022": {
-        "republicanVotes": 65,
+        "republicanVotes": 63,
         "democratVotes": 13,
-        "otherVotes": 17,
-        "allVotes": 95,
-        "rdAdvantage": 52,
-        "rdAdvantagePct": 0.5473684210526316
+        "otherVotes": 16,
+        "allVotes": 92,
+        "rdAdvantage": 50,
+        "rdAdvantagePct": 0.5434782608695652
       },
       "historic2024": {
-        "republicanVotes": 551,
-        "democratVotes": 168,
-        "otherVotes": 197,
-        "allVotes": 916,
-        "rdAdvantage": 383,
-        "rdAdvantagePct": 0.4181222707423581
+        "republicanVotes": 344,
+        "democratVotes": 153,
+        "otherVotes": 168,
+        "allVotes": 665,
+        "rdAdvantage": 191,
+        "rdAdvantagePct": 0.28721804511278193
       }
     },
     {
@@ -5116,12 +5116,12 @@
         "rdAdvantagePct": 0.3283582089552239
       },
       "historic2024": {
-        "republicanVotes": 151,
-        "democratVotes": 36,
-        "otherVotes": 30,
-        "allVotes": 217,
-        "rdAdvantage": 115,
-        "rdAdvantagePct": 0.5299539170506913
+        "republicanVotes": 55,
+        "democratVotes": 26,
+        "otherVotes": 19,
+        "allVotes": 100,
+        "rdAdvantage": 29,
+        "rdAdvantagePct": 0.29
       }
     },
     {
@@ -5136,20 +5136,20 @@
         "rdAdvantagePct": 0.48905109489051096
       },
       "historic2022": {
-        "republicanVotes": 70,
-        "democratVotes": 16,
-        "otherVotes": 22,
-        "allVotes": 108,
-        "rdAdvantage": 54,
-        "rdAdvantagePct": 0.5
+        "republicanVotes": 67,
+        "democratVotes": 15,
+        "otherVotes": 21,
+        "allVotes": 103,
+        "rdAdvantage": 52,
+        "rdAdvantagePct": 0.5048543689320388
       },
       "historic2024": {
-        "republicanVotes": 224,
-        "democratVotes": 56,
-        "otherVotes": 85,
-        "allVotes": 365,
-        "rdAdvantage": 168,
-        "rdAdvantagePct": 0.4602739726027397
+        "republicanVotes": 174,
+        "democratVotes": 50,
+        "otherVotes": 75,
+        "allVotes": 299,
+        "rdAdvantage": 124,
+        "rdAdvantagePct": 0.41471571906354515
       }
     },
     {
@@ -5164,20 +5164,20 @@
         "rdAdvantagePct": 0.3000570450656018
       },
       "historic2022": {
-        "republicanVotes": 775,
-        "democratVotes": 449,
-        "otherVotes": 382,
-        "allVotes": 1606,
+        "republicanVotes": 774,
+        "democratVotes": 448,
+        "otherVotes": 380,
+        "allVotes": 1602,
         "rdAdvantage": 326,
-        "rdAdvantagePct": 0.20298879202988793
+        "rdAdvantagePct": 0.2034956304619226
       },
       "historic2024": {
-        "republicanVotes": 1082,
-        "democratVotes": 318,
-        "otherVotes": 387,
-        "allVotes": 1787,
-        "rdAdvantage": 764,
-        "rdAdvantagePct": 0.42753217683268047
+        "republicanVotes": 361,
+        "democratVotes": 227,
+        "otherVotes": 215,
+        "allVotes": 803,
+        "rdAdvantage": 134,
+        "rdAdvantagePct": 0.16687422166874222
       }
     },
     {
@@ -5200,12 +5200,12 @@
         "rdAdvantagePct": 0.4857142857142857
       },
       "historic2024": {
-        "republicanVotes": 177,
-        "democratVotes": 155,
-        "otherVotes": 122,
-        "allVotes": 454,
-        "rdAdvantage": 22,
-        "rdAdvantagePct": 0.048458149779735685
+        "republicanVotes": 128,
+        "democratVotes": 138,
+        "otherVotes": 108,
+        "allVotes": 374,
+        "rdAdvantage": -10,
+        "rdAdvantagePct": -0.026737967914438502
       }
     },
     {
@@ -5220,20 +5220,20 @@
         "rdAdvantagePct": 0.3408323959505062
       },
       "historic2022": {
-        "republicanVotes": 868,
-        "democratVotes": 553,
-        "otherVotes": 505,
-        "allVotes": 1926,
-        "rdAdvantage": 315,
-        "rdAdvantagePct": 0.16355140186915887
+        "republicanVotes": 848,
+        "democratVotes": 532,
+        "otherVotes": 492,
+        "allVotes": 1872,
+        "rdAdvantage": 316,
+        "rdAdvantagePct": 0.16880341880341881
       },
       "historic2024": {
-        "republicanVotes": 2614,
-        "democratVotes": 1476,
-        "otherVotes": 1640,
-        "allVotes": 5730,
-        "rdAdvantage": 1138,
-        "rdAdvantagePct": 0.19860383944153578
+        "republicanVotes": 2178,
+        "democratVotes": 1436,
+        "otherVotes": 1550,
+        "allVotes": 5164,
+        "rdAdvantage": 742,
+        "rdAdvantagePct": 0.14368706429124709
       }
     },
     {
@@ -5256,12 +5256,12 @@
         "rdAdvantagePct": 0.3870967741935484
       },
       "historic2024": {
-        "republicanVotes": 362,
-        "democratVotes": 118,
-        "otherVotes": 134,
-        "allVotes": 614,
-        "rdAdvantage": 244,
-        "rdAdvantagePct": 0.3973941368078176
+        "republicanVotes": 167,
+        "democratVotes": 97,
+        "otherVotes": 93,
+        "allVotes": 357,
+        "rdAdvantage": 70,
+        "rdAdvantagePct": 0.19607843137254902
       }
     },
     {
@@ -5284,12 +5284,12 @@
         "rdAdvantagePct": 0.27485380116959063
       },
       "historic2024": {
-        "republicanVotes": 246,
-        "democratVotes": 137,
-        "otherVotes": 140,
-        "allVotes": 523,
-        "rdAdvantage": 109,
-        "rdAdvantagePct": 0.2084130019120459
+        "republicanVotes": 127,
+        "democratVotes": 107,
+        "otherVotes": 105,
+        "allVotes": 339,
+        "rdAdvantage": 20,
+        "rdAdvantagePct": 0.058997050147492625
       }
     },
     {
@@ -5304,20 +5304,20 @@
         "rdAdvantagePct": -0.08681162587412587
       },
       "historic2022": {
-        "republicanVotes": 2724,
-        "democratVotes": 3100,
-        "otherVotes": 1565,
-        "allVotes": 7389,
-        "rdAdvantage": -376,
-        "rdAdvantagePct": -0.05088645283529571
+        "republicanVotes": 2037,
+        "democratVotes": 2462,
+        "otherVotes": 1270,
+        "allVotes": 5769,
+        "rdAdvantage": -425,
+        "rdAdvantagePct": -0.07366961345120472
       },
       "historic2024": {
-        "republicanVotes": 14764,
-        "democratVotes": 16395,
-        "otherVotes": 9632,
-        "allVotes": 40791,
-        "rdAdvantage": -1631,
-        "rdAdvantagePct": -0.03998431026451913
+        "republicanVotes": 9176,
+        "democratVotes": 12525,
+        "otherVotes": 7419,
+        "allVotes": 29120,
+        "rdAdvantage": -3349,
+        "rdAdvantagePct": -0.11500686813186813
       }
     },
     {
@@ -5332,20 +5332,20 @@
         "rdAdvantagePct": 0.5054347826086957
       },
       "historic2022": {
-        "republicanVotes": 155,
+        "republicanVotes": 153,
         "democratVotes": 60,
         "otherVotes": 43,
-        "allVotes": 258,
-        "rdAdvantage": 95,
-        "rdAdvantagePct": 0.3682170542635659
+        "allVotes": 256,
+        "rdAdvantage": 93,
+        "rdAdvantagePct": 0.36328125
       },
       "historic2024": {
-        "republicanVotes": 379,
-        "democratVotes": 106,
-        "otherVotes": 119,
-        "allVotes": 604,
-        "rdAdvantage": 273,
-        "rdAdvantagePct": 0.4519867549668874
+        "republicanVotes": 296,
+        "democratVotes": 97,
+        "otherVotes": 102,
+        "allVotes": 495,
+        "rdAdvantage": 199,
+        "rdAdvantagePct": 0.402020202020202
       }
     },
     {
@@ -5360,20 +5360,20 @@
         "rdAdvantagePct": 0.31762586517493124
       },
       "historic2022": {
-        "republicanVotes": 3767,
-        "democratVotes": 1966,
-        "otherVotes": 1637,
-        "allVotes": 7370,
-        "rdAdvantage": 1801,
-        "rdAdvantagePct": 0.24436906377204884
+        "republicanVotes": 3733,
+        "democratVotes": 1937,
+        "otherVotes": 1615,
+        "allVotes": 7285,
+        "rdAdvantage": 1796,
+        "rdAdvantagePct": 0.24653397391901166
       },
       "historic2024": {
-        "republicanVotes": 11981,
-        "democratVotes": 5151,
-        "otherVotes": 5285,
-        "allVotes": 22417,
-        "rdAdvantage": 6830,
-        "rdAdvantagePct": 0.30467948431993574
+        "republicanVotes": 8246,
+        "democratVotes": 4632,
+        "otherVotes": 4552,
+        "allVotes": 17430,
+        "rdAdvantage": 3614,
+        "rdAdvantagePct": 0.20734366035570856
       }
     },
     {
@@ -5388,20 +5388,20 @@
         "rdAdvantagePct": -0.10513075834599864
       },
       "historic2022": {
-        "republicanVotes": 5005,
-        "democratVotes": 7289,
-        "otherVotes": 3552,
-        "allVotes": 15846,
-        "rdAdvantage": -2284,
-        "rdAdvantagePct": -0.14413732172157012
+        "republicanVotes": 1416,
+        "democratVotes": 1283,
+        "otherVotes": 597,
+        "allVotes": 3296,
+        "rdAdvantage": 133,
+        "rdAdvantagePct": 0.04035194174757282
       },
       "historic2024": {
-        "republicanVotes": 12733,
-        "democratVotes": 17083,
-        "otherVotes": 10220,
-        "allVotes": 40036,
-        "rdAdvantage": -4350,
-        "rdAdvantagePct": -0.10865221300829253
+        "republicanVotes": 10620,
+        "democratVotes": 14734,
+        "otherVotes": 8933,
+        "allVotes": 34287,
+        "rdAdvantage": -4114,
+        "rdAdvantagePct": -0.11998716714789862
       }
     },
     {
@@ -5416,20 +5416,20 @@
         "rdAdvantagePct": 0.04951966648540874
       },
       "historic2022": {
-        "republicanVotes": 5527,
-        "democratVotes": 4487,
-        "otherVotes": 2670,
-        "allVotes": 12684,
-        "rdAdvantage": 1040,
-        "rdAdvantagePct": 0.08199306212551245
+        "republicanVotes": 4829,
+        "democratVotes": 3842,
+        "otherVotes": 2367,
+        "allVotes": 11038,
+        "rdAdvantage": 987,
+        "rdAdvantagePct": 0.08941837289364016
       },
       "historic2024": {
-        "republicanVotes": 23663,
-        "democratVotes": 19841,
-        "otherVotes": 13047,
-        "allVotes": 56551,
-        "rdAdvantage": 3822,
-        "rdAdvantagePct": 0.06758501175929692
+        "republicanVotes": 14886,
+        "democratVotes": 15519,
+        "otherVotes": 10219,
+        "allVotes": 40624,
+        "rdAdvantage": -633,
+        "rdAdvantagePct": -0.015581922016541946
       }
     },
     {
@@ -5444,20 +5444,20 @@
         "rdAdvantagePct": -0.08820824135393672
       },
       "historic2022": {
-        "republicanVotes": 6969,
-        "democratVotes": 8662,
-        "otherVotes": 4806,
-        "allVotes": 20437,
-        "rdAdvantage": -1693,
-        "rdAdvantagePct": -0.08283994715467045
+        "republicanVotes": 2058,
+        "democratVotes": 1520,
+        "otherVotes": 845,
+        "allVotes": 4423,
+        "rdAdvantage": 538,
+        "rdAdvantagePct": 0.12163689803300927
       },
       "historic2024": {
-        "republicanVotes": 18035,
-        "democratVotes": 19553,
-        "otherVotes": 12838,
-        "allVotes": 50426,
-        "rdAdvantage": -1518,
-        "rdAdvantagePct": -0.030103518026414946
+        "republicanVotes": 13902,
+        "democratVotes": 15961,
+        "otherVotes": 10467,
+        "allVotes": 40330,
+        "rdAdvantage": -2059,
+        "rdAdvantagePct": -0.05105380609967766
       }
     },
     {
@@ -5472,20 +5472,20 @@
         "rdAdvantagePct": -0.10725026852846402
       },
       "historic2022": {
-        "republicanVotes": 5706,
-        "democratVotes": 7568,
-        "otherVotes": 3834,
-        "allVotes": 17108,
-        "rdAdvantage": -1862,
-        "rdAdvantagePct": -0.1088379705400982
+        "republicanVotes": 2287,
+        "democratVotes": 1763,
+        "otherVotes": 1052,
+        "allVotes": 5102,
+        "rdAdvantage": 524,
+        "rdAdvantagePct": 0.10270482163857311
       },
       "historic2024": {
-        "republicanVotes": 16219,
-        "democratVotes": 17080,
-        "otherVotes": 11080,
-        "allVotes": 44379,
-        "rdAdvantage": -861,
-        "rdAdvantagePct": -0.019401068072737105
+        "republicanVotes": 12506,
+        "democratVotes": 14285,
+        "otherVotes": 9295,
+        "allVotes": 36086,
+        "rdAdvantage": -1779,
+        "rdAdvantagePct": -0.04929889707919969
       }
     },
     {
@@ -5598,20 +5598,20 @@
         "rdAdvantagePct": -0.06077231483435324
       },
       "historic2022": {
-        "republicanVotes": 1560,
-        "democratVotes": 1858,
-        "otherVotes": 1013,
-        "allVotes": 4431,
-        "rdAdvantage": -298,
-        "rdAdvantagePct": -0.0672534416610246
+        "republicanVotes": 444,
+        "democratVotes": 297,
+        "otherVotes": 180,
+        "allVotes": 921,
+        "rdAdvantage": 147,
+        "rdAdvantagePct": 0.15960912052117263
       },
       "historic2024": {
-        "republicanVotes": 3369,
-        "democratVotes": 3787,
-        "otherVotes": 2371,
-        "allVotes": 9527,
-        "rdAdvantage": -418,
-        "rdAdvantagePct": -0.043875301773905744
+        "republicanVotes": 2799,
+        "democratVotes": 3277,
+        "otherVotes": 2055,
+        "allVotes": 8131,
+        "rdAdvantage": -478,
+        "rdAdvantagePct": -0.058787357028655764
       }
     },
     {
@@ -5626,20 +5626,20 @@
         "rdAdvantagePct": -0.09178149606299213
       },
       "historic2022": {
-        "republicanVotes": 1061,
-        "democratVotes": 1489,
-        "otherVotes": 799,
-        "allVotes": 3349,
-        "rdAdvantage": -428,
-        "rdAdvantagePct": -0.1277993430874888
+        "republicanVotes": 270,
+        "democratVotes": 254,
+        "otherVotes": 118,
+        "allVotes": 642,
+        "rdAdvantage": 16,
+        "rdAdvantagePct": 0.024922118380062305
       },
       "historic2024": {
-        "republicanVotes": 2710,
-        "democratVotes": 3227,
-        "otherVotes": 2103,
-        "allVotes": 8040,
-        "rdAdvantage": -517,
-        "rdAdvantagePct": -0.06430348258706467
+        "republicanVotes": 2110,
+        "democratVotes": 2648,
+        "otherVotes": 1733,
+        "allVotes": 6491,
+        "rdAdvantage": -538,
+        "rdAdvantagePct": -0.08288399322138346
       }
     },
     {
@@ -5682,20 +5682,20 @@
         "rdAdvantagePct": -0.1265282911572363
       },
       "historic2022": {
-        "republicanVotes": 1034,
-        "democratVotes": 1362,
-        "otherVotes": 672,
-        "allVotes": 3068,
-        "rdAdvantage": -328,
-        "rdAdvantagePct": -0.10691003911342895
+        "republicanVotes": 302,
+        "democratVotes": 230,
+        "otherVotes": 122,
+        "allVotes": 654,
+        "rdAdvantage": 72,
+        "rdAdvantagePct": 0.11009174311926606
       },
       "historic2024": {
-        "republicanVotes": 3376,
-        "democratVotes": 3969,
-        "otherVotes": 2380,
-        "allVotes": 9725,
-        "rdAdvantage": -593,
-        "rdAdvantagePct": -0.060976863753213366
+        "republicanVotes": 2488,
+        "democratVotes": 3189,
+        "otherVotes": 1876,
+        "allVotes": 7553,
+        "rdAdvantage": -701,
+        "rdAdvantagePct": -0.09281080365417715
       }
     },
     {
@@ -5850,20 +5850,20 @@
         "rdAdvantagePct": -0.01641025641025641
       },
       "historic2022": {
-        "republicanVotes": 1054,
-        "democratVotes": 1078,
-        "otherVotes": 626,
-        "allVotes": 2758,
-        "rdAdvantage": -24,
-        "rdAdvantagePct": -0.00870195794053662
+        "republicanVotes": 317,
+        "democratVotes": 183,
+        "otherVotes": 111,
+        "allVotes": 611,
+        "rdAdvantage": 134,
+        "rdAdvantagePct": 0.2193126022913257
       },
       "historic2024": {
-        "republicanVotes": 2057,
-        "democratVotes": 2162,
-        "otherVotes": 1428,
-        "allVotes": 5647,
-        "rdAdvantage": -105,
-        "rdAdvantagePct": -0.018593943686913406
+        "republicanVotes": 1786,
+        "democratVotes": 1948,
+        "otherVotes": 1266,
+        "allVotes": 5000,
+        "rdAdvantage": -162,
+        "rdAdvantagePct": -0.0324
       }
     },
     {
@@ -5906,20 +5906,20 @@
         "rdAdvantagePct": -0.13230429988974643
       },
       "historic2022": {
-        "republicanVotes": 506,
-        "democratVotes": 780,
-        "otherVotes": 387,
-        "allVotes": 1673,
-        "rdAdvantage": -274,
-        "rdAdvantagePct": -0.16377764494919306
+        "republicanVotes": 127,
+        "democratVotes": 114,
+        "otherVotes": 69,
+        "allVotes": 310,
+        "rdAdvantage": 13,
+        "rdAdvantagePct": 0.041935483870967745
       },
       "historic2024": {
-        "republicanVotes": 1312,
-        "democratVotes": 1625,
-        "otherVotes": 943,
-        "allVotes": 3880,
-        "rdAdvantage": -313,
-        "rdAdvantagePct": -0.08067010309278351
+        "republicanVotes": 1013,
+        "democratVotes": 1329,
+        "otherVotes": 789,
+        "allVotes": 3131,
+        "rdAdvantage": -316,
+        "rdAdvantagePct": -0.10092622165442351
       }
     },
     {
@@ -5976,20 +5976,20 @@
         "rdAdvantagePct": -0.04895416110369381
       },
       "historic2022": {
-        "republicanVotes": 586,
-        "democratVotes": 745,
-        "otherVotes": 449,
-        "allVotes": 1780,
-        "rdAdvantage": -159,
-        "rdAdvantagePct": -0.08932584269662922
+        "republicanVotes": 143,
+        "democratVotes": 118,
+        "otherVotes": 61,
+        "allVotes": 322,
+        "rdAdvantage": 25,
+        "rdAdvantagePct": 0.07763975155279502
       },
       "historic2024": {
-        "republicanVotes": 1541,
-        "democratVotes": 1622,
-        "otherVotes": 1151,
-        "allVotes": 4314,
-        "rdAdvantage": -81,
-        "rdAdvantagePct": -0.018776077885952713
+        "republicanVotes": 1212,
+        "democratVotes": 1330,
+        "otherVotes": 966,
+        "allVotes": 3508,
+        "rdAdvantage": -118,
+        "rdAdvantagePct": -0.033637400228050174
       }
     },
     {
@@ -6032,20 +6032,20 @@
         "rdAdvantagePct": -0.015724815724815724
       },
       "historic2022": {
-        "republicanVotes": 595,
-        "democratVotes": 689,
-        "otherVotes": 326,
-        "allVotes": 1610,
-        "rdAdvantage": -94,
-        "rdAdvantagePct": -0.058385093167701865
+        "republicanVotes": 216,
+        "democratVotes": 156,
+        "otherVotes": 90,
+        "allVotes": 462,
+        "rdAdvantage": 60,
+        "rdAdvantagePct": 0.12987012987012986
       },
       "historic2024": {
-        "republicanVotes": 1295,
-        "democratVotes": 1422,
-        "otherVotes": 977,
-        "allVotes": 3694,
-        "rdAdvantage": -127,
-        "rdAdvantagePct": -0.03438007579859231
+        "republicanVotes": 1071,
+        "democratVotes": 1187,
+        "otherVotes": 844,
+        "allVotes": 3102,
+        "rdAdvantage": -116,
+        "rdAdvantagePct": -0.037395228884590584
       }
     },
     {
@@ -6172,20 +6172,20 @@
         "rdAdvantagePct": -0.1290626471973622
       },
       "historic2022": {
-        "republicanVotes": 516,
-        "democratVotes": 676,
-        "otherVotes": 306,
-        "allVotes": 1498,
-        "rdAdvantage": -160,
-        "rdAdvantagePct": -0.1068090787716956
+        "republicanVotes": 174,
+        "democratVotes": 122,
+        "otherVotes": 61,
+        "allVotes": 357,
+        "rdAdvantage": 52,
+        "rdAdvantagePct": 0.14565826330532214
       },
       "historic2024": {
-        "republicanVotes": 1766,
-        "democratVotes": 2106,
-        "otherVotes": 1204,
-        "allVotes": 5076,
-        "rdAdvantage": -340,
-        "rdAdvantagePct": -0.06698187549251379
+        "republicanVotes": 1326,
+        "democratVotes": 1700,
+        "otherVotes": 961,
+        "allVotes": 3987,
+        "rdAdvantage": -374,
+        "rdAdvantagePct": -0.09380486581389516
       }
     },
     {
@@ -6242,20 +6242,20 @@
         "rdAdvantagePct": -0.1512770137524558
       },
       "historic2022": {
-        "republicanVotes": 469,
-        "democratVotes": 682,
-        "otherVotes": 300,
-        "allVotes": 1451,
-        "rdAdvantage": -213,
-        "rdAdvantagePct": -0.14679531357684356
+        "republicanVotes": 343,
+        "democratVotes": 511,
+        "otherVotes": 238,
+        "allVotes": 1092,
+        "rdAdvantage": -168,
+        "rdAdvantagePct": -0.15384615384615385
       },
       "historic2024": {
-        "republicanVotes": 2224,
-        "democratVotes": 3143,
-        "otherVotes": 1570,
-        "allVotes": 6937,
-        "rdAdvantage": -919,
-        "rdAdvantagePct": -0.13247801643361684
+        "republicanVotes": 1376,
+        "democratVotes": 2305,
+        "otherVotes": 1151,
+        "allVotes": 4832,
+        "rdAdvantage": -929,
+        "rdAdvantagePct": -0.19225993377483444
       }
     },
     {
@@ -6312,20 +6312,20 @@
         "rdAdvantagePct": -0.17386831275720166
       },
       "historic2022": {
-        "republicanVotes": 428,
-        "democratVotes": 592,
-        "otherVotes": 315,
-        "allVotes": 1335,
-        "rdAdvantage": -164,
-        "rdAdvantagePct": -0.12284644194756554
+        "republicanVotes": 151,
+        "democratVotes": 109,
+        "otherVotes": 80,
+        "allVotes": 340,
+        "rdAdvantage": 42,
+        "rdAdvantagePct": 0.12352941176470589
       },
       "historic2024": {
-        "republicanVotes": 1328,
-        "democratVotes": 1797,
-        "otherVotes": 1045,
-        "allVotes": 4170,
-        "rdAdvantage": -469,
-        "rdAdvantagePct": -0.11247002398081535
+        "republicanVotes": 1070,
+        "democratVotes": 1518,
+        "otherVotes": 892,
+        "allVotes": 3480,
+        "rdAdvantage": -448,
+        "rdAdvantagePct": -0.12873563218390804
       }
     },
     {
@@ -6410,20 +6410,20 @@
         "rdAdvantagePct": -0.07483930211202938
       },
       "historic2022": {
-        "republicanVotes": 580,
-        "democratVotes": 715,
-        "otherVotes": 494,
-        "allVotes": 1789,
-        "rdAdvantage": -135,
-        "rdAdvantagePct": -0.07546115148127445
+        "republicanVotes": 161,
+        "democratVotes": 131,
+        "otherVotes": 77,
+        "allVotes": 369,
+        "rdAdvantage": 30,
+        "rdAdvantagePct": 0.08130081300813008
       },
       "historic2024": {
-        "republicanVotes": 1877,
-        "democratVotes": 1900,
-        "otherVotes": 1382,
-        "allVotes": 5159,
-        "rdAdvantage": -23,
-        "rdAdvantagePct": -0.004458228338825354
+        "republicanVotes": 1367,
+        "democratVotes": 1501,
+        "otherVotes": 1084,
+        "allVotes": 3952,
+        "rdAdvantage": -134,
+        "rdAdvantagePct": -0.03390688259109312
       }
     },
     {
@@ -6452,20 +6452,20 @@
         "rdAdvantagePct": -0.12384219554030874
       },
       "historic2022": {
-        "republicanVotes": 1203,
-        "democratVotes": 1483,
-        "otherVotes": 761,
-        "allVotes": 3447,
-        "rdAdvantage": -280,
-        "rdAdvantagePct": -0.08123005512039455
+        "republicanVotes": 422,
+        "democratVotes": 266,
+        "otherVotes": 151,
+        "allVotes": 839,
+        "rdAdvantage": 156,
+        "rdAdvantagePct": 0.18593563766388557
       },
       "historic2024": {
-        "republicanVotes": 3182,
-        "democratVotes": 3126,
-        "otherVotes": 1881,
-        "allVotes": 8189,
-        "rdAdvantage": 56,
-        "rdAdvantagePct": 0.00683844181218708
+        "republicanVotes": 2369,
+        "democratVotes": 2447,
+        "otherVotes": 1462,
+        "allVotes": 6278,
+        "rdAdvantage": -78,
+        "rdAdvantagePct": -0.012424338961452692
       }
     },
     {
@@ -6536,20 +6536,20 @@
         "rdAdvantagePct": -0.14474408365437536
       },
       "historic2022": {
-        "republicanVotes": 475,
-        "democratVotes": 744,
-        "otherVotes": 350,
-        "allVotes": 1569,
-        "rdAdvantage": -269,
-        "rdAdvantagePct": -0.17144678138942002
+        "republicanVotes": 127,
+        "democratVotes": 136,
+        "otherVotes": 57,
+        "allVotes": 320,
+        "rdAdvantage": -9,
+        "rdAdvantagePct": -0.028125
       },
       "historic2024": {
-        "republicanVotes": 1169,
-        "democratVotes": 1605,
-        "otherVotes": 952,
-        "allVotes": 3726,
-        "rdAdvantage": -436,
-        "rdAdvantagePct": -0.11701556629092862
+        "republicanVotes": 898,
+        "democratVotes": 1318,
+        "otherVotes": 767,
+        "allVotes": 2983,
+        "rdAdvantage": -420,
+        "rdAdvantagePct": -0.14079785450888369
       }
     },
     {
@@ -6648,20 +6648,20 @@
         "rdAdvantagePct": -0.04841196423065063
       },
       "historic2022": {
-        "republicanVotes": 2898,
-        "democratVotes": 3627,
-        "otherVotes": 2131,
-        "allVotes": 8656,
-        "rdAdvantage": -729,
-        "rdAdvantagePct": -0.08421903881700554
+        "republicanVotes": 740,
+        "democratVotes": 545,
+        "otherVotes": 296,
+        "allVotes": 1581,
+        "rdAdvantage": 195,
+        "rdAdvantagePct": 0.12333965844402277
       },
       "historic2024": {
-        "republicanVotes": 7387,
-        "democratVotes": 8134,
-        "otherVotes": 5581,
-        "allVotes": 21102,
-        "rdAdvantage": -747,
-        "rdAdvantagePct": -0.0353994882001706
+        "republicanVotes": 5746,
+        "democratVotes": 6746,
+        "otherVotes": 4644,
+        "allVotes": 17136,
+        "rdAdvantage": -1000,
+        "rdAdvantagePct": -0.05835667600373483
       }
     },
     {

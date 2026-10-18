@@ -11,7 +11,10 @@ export default async function CountyPage() {
     const county = getSheet(snapshot, "County");
 
     return (
-      <PageShell fetchedAt={snapshot.fetchedAt}>
+      <PageShell
+        fetchedAt={snapshot.fetchedAt}
+        asOfDate={snapshot.asOfDate}
+      >
         <CountyView sheet={county} advantages={snapshot.advantages} />
       </PageShell>
     );

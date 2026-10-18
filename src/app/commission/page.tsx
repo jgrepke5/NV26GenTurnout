@@ -11,7 +11,10 @@ export default async function CommissionPage() {
     const sheet = getSheet(snapshot, "Commission");
 
     return (
-      <PageShell fetchedAt={snapshot.fetchedAt}>
+      <PageShell
+        fetchedAt={snapshot.fetchedAt}
+        asOfDate={snapshot.asOfDate}
+      >
         <CommissionView sheet={sheet} advantages={snapshot.advantages} />
       </PageShell>
     );

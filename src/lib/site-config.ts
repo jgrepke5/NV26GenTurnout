@@ -18,4 +18,12 @@ export const SITE = {
   earlyVoteStart: "2026-10-17",
   /** Day before early voting opens — maps to historic RowNo 0. */
   dayBeforeEarlyVote: "2026-10-16",
+  /**
+   * Temporary footnote under historic R/D comps. Shown while snapshot
+   * asOfDate equals throughAsOfDate; drops off on the next morning sync.
+   */
+  temporaryHistoricNote: {
+    throughAsOfDate: "2026-10-18",
+    text: "Note: In 2022, Clark County didn’t update their mail until the second day of early voting.",
+  },
 } as const;

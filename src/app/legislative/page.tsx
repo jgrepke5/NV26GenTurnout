@@ -11,7 +11,10 @@ export default async function LegislativePage() {
     const sheet = getSheet(snapshot, "Legislative");
 
     return (
-      <PageShell fetchedAt={snapshot.fetchedAt}>
+      <PageShell
+        fetchedAt={snapshot.fetchedAt}
+        asOfDate={snapshot.asOfDate}
+      >
         <LegislativeView sheet={sheet} advantages={snapshot.advantages} />
       </PageShell>
     );

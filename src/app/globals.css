@@ -1160,6 +1160,20 @@ a:hover {
   color: var(--ink-muted);
 }
 
+.advantage-historic-note {
+  flex: 1 1 100%;
+  margin: 0.35rem 0 0;
+  max-width: 36rem;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ink-muted);
+}
+
+.advantage-panel--compact .advantage-historic-note {
+  font-size: 0.72rem;
+  margin-top: 0.2rem;
+}
+
 .error-box {
   margin: 3rem auto;
   max-width: 32rem;

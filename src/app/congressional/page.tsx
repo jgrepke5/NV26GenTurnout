@@ -11,7 +11,10 @@ export default async function CongressionalPage() {
     const sheet = getSheet(snapshot, "Congressional");
 
     return (
-      <PageShell fetchedAt={snapshot.fetchedAt}>
+      <PageShell
+        fetchedAt={snapshot.fetchedAt}
+        asOfDate={snapshot.asOfDate}
+      >
         <CongressionalView sheet={sheet} advantages={snapshot.advantages} />
       </PageShell>
     );

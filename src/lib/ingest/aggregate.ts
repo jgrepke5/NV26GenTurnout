@@ -40,19 +40,15 @@ function methodKey(raw: string): MethodKey {
 
 /**
  * Count a File 6 row as a completed ballot.
- * Mail (and future election-day) use BALLOT_STATUS=Accepted.
- * In-person early vote is recorded as VOTE_METHOD=Early Voting with
- * BALLOT_STATUS="Surrendered – Voted In Person" (mail ballot surrendered
- * at the EV site) — those were previously excluded by an Accepted-only filter.
+ * In-person early vote: any row with VOTE_METHOD containing "early"
+ * (BALLOT_STATUS is irrelevant — mixes Surrendered, blank, Canceled, etc.).
+ * Mail (and future election-day): require BALLOT_STATUS=Accepted.
  */
 function isCountedBallot(status: string, voteMethod: string): boolean {
   if (!voteMethod.trim()) return false;
-  const s = status.trim().toLowerCase();
   const m = voteMethod.trim().toLowerCase();
-  if (m.includes("early")) {
-    return s === "accepted" || s.startsWith("surrendered");
-  }
-  return s === "accepted";
+  if (m.includes("early")) return true;
+  return status.trim().toLowerCase() === "accepted";
 }
 
 export type AggregateResult = {

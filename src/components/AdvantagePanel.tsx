@@ -6,7 +6,6 @@ import {
   type GeoAdvantage,
 } from "@/lib/advantage";
 import { SITE } from "@/lib/site-config";
-import { useSnapshotMeta } from "./SnapshotMeta";
 
 export function AdvantagePanel({
   advantage,
@@ -15,16 +14,10 @@ export function AdvantagePanel({
   advantage: GeoAdvantage | null | undefined;
   compact?: boolean;
 }) {
-  const { asOfDate } = useSnapshotMeta();
   if (!advantage) return null;
   const { metrics, historic2022, historic2024 } = advantage;
   const showHistoric = historic2022 != null || historic2024 != null;
-  const note = SITE.temporaryHistoricNote;
-  const showHistoricNote =
-    showHistoric &&
-    note != null &&
-    asOfDate != null &&
-    asOfDate === note.throughAsOfDate;
+  const showHistoricNote = showHistoric && Boolean(SITE.historicNote);
 
   return (
     <div
@@ -71,7 +64,7 @@ export function AdvantagePanel({
             </div>
           ) : null}
           {showHistoricNote ? (
-            <p className="advantage-historic-note">{note.text}</p>
+            <p className="advantage-historic-note">{SITE.historicNote}</p>
           ) : null}
         </div>
       ) : null}

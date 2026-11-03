@@ -24,12 +24,13 @@ export async function findLocalRaw(): Promise<{
   const zips = names
     .filter((n) => /\.zip$/i.test(n) && /file\s*6|file6/i.test(n))
     .sort();
+  // Only File 6 CSVs — do not pick supplemental files like ElectionDay.csv.
   const csvs = names
-    .filter((n) => /\.csv$/i.test(n))
+    .filter((n) => /\.csv$/i.test(n) && /file\s*6|file6/i.test(n))
     .sort();
 
   if (zips.length === 0 && csvs.length === 0) {
-    // also accept any zip
+    // also accept any zip (but never a non-File-6 CSV)
     const anyZip = names.filter((n) => /\.zip$/i.test(n)).sort();
     if (anyZip.length === 0) return null;
     return { zipPath: path.join(RAW_DIR, anyZip[anyZip.length - 1]!) };

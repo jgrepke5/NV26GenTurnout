@@ -8,16 +8,19 @@ import {
 } from "../advantage";
 import { SITE } from "../site-config";
 import type { TurnoutSnapshot } from "../types";
-import { aggregateVividCsv } from "./aggregate";
+import { access } from "fs/promises";
+import { aggregateVividCsv, applyElectionDayCsv } from "./aggregate";
 import { snapshotFromAggregate } from "./build-sheets";
 import { discoverFile6 } from "./discover";
 import {
   downloadToRaw,
   extractCsvFromZip,
   findLocalRaw,
+  RAW_DIR,
 } from "./download";
 
 const HISTORY_DIR = path.join(process.cwd(), "data", "history");
+const DEFAULT_ELECTION_DAY_CSV = path.join(RAW_DIR, "ElectionDay.csv");
 
 async function hashStream(filePath: string): Promise<string> {
   // For large files, hash first/last chunks + size via streaming
@@ -82,6 +85,19 @@ export async function syncVividSnapshot(): Promise<TurnoutSnapshot> {
   console.log(
     `  VIVID registered: ${agg.statewide.registered.toLocaleString()} (R ${agg.statewide.REP.registered.toLocaleString()} / D ${agg.statewide.DEM.registered.toLocaleString()} / Other ${agg.statewide.OTHER.registered.toLocaleString()})`,
   );
+
+  const electionDayCsv =
+    process.env.ELECTION_DAY_CSV || DEFAULT_ELECTION_DAY_CSV;
+  try {
+    await access(electionDayCsv);
+    console.log(`Merging Election Day votes from ${electionDayCsv}…`);
+    const added = await applyElectionDayCsv(agg, electionDayCsv);
+    console.log(
+      `  +${added.toLocaleString()} election-day → ${agg.acceptedVotes.toLocaleString()} total`,
+    );
+  } catch {
+    // Optional supplemental file — skip if absent.
+  }
 
   const asOfDate = todayPacificYmd();
   const fetchedAt = process.env.FETCHED_AT || new Date().toISOString();

@@ -34,7 +34,10 @@ function methodKey(raw: string): MethodKey {
   const m = raw.trim().toLowerCase();
   if (m === "mail") return "mail";
   if (m.includes("early")) return "early";
-  if (m.includes("election")) return "eday";
+  // Election Day poll-place files use "Election Day", "PP", etc.
+  if (m.includes("election") || m === "pp" || m.includes("poll")) {
+    return "eday";
+  }
   return "other";
 }
 
@@ -42,13 +45,74 @@ function methodKey(raw: string): MethodKey {
  * Count a File 6 row as a completed ballot.
  * In-person early vote: any row with VOTE_METHOD containing "early"
  * (BALLOT_STATUS is irrelevant — mixes Surrendered, blank, Canceled, etc.).
- * Mail (and future election-day): require BALLOT_STATUS=Accepted.
+ * Election Day poll-place: count regardless of BALLOT_STATUS.
+ * Mail: require BALLOT_STATUS=Accepted.
  */
 function isCountedBallot(status: string, voteMethod: string): boolean {
   if (!voteMethod.trim()) return false;
   const m = voteMethod.trim().toLowerCase();
   if (m.includes("early")) return true;
+  if (m.includes("election") || m === "pp" || m.includes("poll")) return true;
   return status.trim().toLowerCase() === "accepted";
+}
+
+/**
+ * Add Election Day–only votes onto an existing File 6 aggregate.
+ * Does not change registration totals (voters are already in File 6 VR).
+ * CSV should include VOTER_REG_PARTY + district geos (joined from File 6 if needed).
+ */
+export async function applyElectionDayCsv(
+  agg: AggregateResult,
+  csvPath: string,
+): Promise<number> {
+  const rl = createInterface({
+    input: createReadStream(csvPath, { encoding: "utf8" }),
+    crlfDelay: Infinity,
+  });
+
+  let idx: Record<string, number> | null = null;
+  let rowNum = 0;
+  let added = 0;
+
+  for await (const line of rl) {
+    rowNum++;
+    if (rowNum === 1) {
+      const headers = parseCsvLine(line.replace(/^\uFEFF/, "")).map((h) =>
+        h.trim(),
+      );
+      idx = Object.fromEntries(headers.map((h, i) => [h, i]));
+      for (const col of ["VOTER_REG_PARTY", "REGISTRATION_COUNTY"] as const) {
+        if (idx[col] == null) {
+          throw new Error(`Election Day CSV missing required column: ${col}`);
+        }
+      }
+      continue;
+    }
+    if (!idx) continue;
+    const cols = parseCsvLine(line);
+    const get = (name: string) => (cols[idx![name] ?? -1] ?? "").trim();
+
+    const county = get("REGISTRATION_COUNTY").toUpperCase();
+    const party = partyBucket(get("VOTER_REG_PARTY"));
+    const congress = get("CONGRESS");
+    const senate = get("SENATE");
+    const assembly = get("ASSEMBLY");
+    const commission = get("COMMISSION");
+    const mk: MethodKey = "eday";
+
+    agg.acceptedVotes += 1;
+    added += 1;
+    bump(agg.statewide, party, mk);
+    if (county) bump(ensure(agg.counties, county), party, mk);
+    if (congress) bump(ensure(agg.congress, congress), party, mk);
+    if (senate) bump(ensure(agg.senate, senate), party, mk);
+    if (assembly) bump(ensure(agg.assembly, assembly), party, mk);
+    if (county && commission) {
+      bump(ensure(agg.commission, `${county}|${commission}`), party, mk);
+    }
+  }
+
+  return added;
 }
 
 export type AggregateResult = {

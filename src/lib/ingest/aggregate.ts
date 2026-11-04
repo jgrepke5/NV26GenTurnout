@@ -41,6 +41,14 @@ function methodKey(raw: string): MethodKey {
   return "other";
 }
 
+/** Normalize district codes so "01" and "1" map to the same key. */
+function normalizeDistrict(raw: string): string {
+  const t = raw.trim();
+  if (!t) return "";
+  const n = Number(t);
+  return Number.isFinite(n) ? String(n) : t;
+}
+
 /**
  * Count a File 6 row as a completed ballot.
  * In-person early vote: any row with VOTE_METHOD containing "early"
@@ -94,10 +102,10 @@ export async function applyElectionDayCsv(
 
     const county = get("REGISTRATION_COUNTY").toUpperCase();
     const party = partyBucket(get("VOTER_REG_PARTY"));
-    const congress = get("CONGRESS");
-    const senate = get("SENATE");
-    const assembly = get("ASSEMBLY");
-    const commission = get("COMMISSION");
+    const congress = normalizeDistrict(get("CONGRESS"));
+    const senate = normalizeDistrict(get("SENATE"));
+    const assembly = normalizeDistrict(get("ASSEMBLY"));
+    const commission = get("COMMISSION").trim();
     const mk: MethodKey = "eday";
 
     agg.acceptedVotes += 1;
@@ -201,10 +209,10 @@ export async function aggregateVividCsv(
 
     const county = get("REGISTRATION_COUNTY").toUpperCase();
     const party = partyBucket(get("VOTER_REG_PARTY"));
-    const congress = get("CONGRESS");
-    const senate = get("SENATE");
-    const assembly = get("ASSEMBLY");
-    const commission = get("COMMISSION");
+    const congress = normalizeDistrict(get("CONGRESS"));
+    const senate = normalizeDistrict(get("SENATE"));
+    const assembly = normalizeDistrict(get("ASSEMBLY"));
+    const commission = get("COMMISSION").trim();
 
     // Registration universe (every File 6 row, by VOTER_REG_PARTY)
     const bumpRegistered = (b: PartyMethodCounts) => {
